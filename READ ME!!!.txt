@@ -1,0 +1,8 @@
+Team Members: Christian, Elena, Ruben
+
+Projektname: Trackpad_application
+
+Start of the Programming and testing: 17.11.2022
+
+Informations about the project can be found in: Milestones and Management
+New Ideas and further implementations can be written and read in: Brainstorming 
