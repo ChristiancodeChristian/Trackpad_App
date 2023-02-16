@@ -1,33 +1,21 @@
 package com.example.buildyourownui;
 
-import static android.R.layout.*;
-
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.app.AppCompatDelegate;
-
+import android.content.Intent;
 import android.os.Bundle;
-
-import android.widget.ArrayAdapter;
-
-import android.widget.Button;
-import android.widget.Spinner;
-
 import android.view.View;
+import android.widget.Button;
+import android.widget.ImageButton;
 
-import android.widget.AdapterView;
-
-import android.widget.TextView;
-import android.widget.Toast;
-
-import android.widget.AutoCompleteTextView;
-import android.widget.ToggleButton;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompat {
     // initializing variables
-    private TextView lblGeneral;
-    private ToggleButton btnNightMode;
+    private Button btnStart, btnGraph, btnScore, btnExit;
+    private ImageButton btnSettings;
 
+    //public static FragmentManager fragmentManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,38 +23,61 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         // Variables from GUI
-        lblGeneral = findViewById(R.id.lblGeneral);
-        btnNightMode = findViewById(R.id.btnNightMode);
-        AutoCompleteTextView autocompleteTV = findViewById(R.id.autoCompleteTextView);
+        btnExit = findViewById(R.id.btnExit);
+        btnStart = findViewById(R.id.btnStartMain);
+        btnSettings = findViewById(R.id.btnSettings);
+        btnGraph = findViewById(R.id.btnGraph);
+        btnScore = findViewById(R.id.btnScores);
 
-        // DropDown Menu Language
-        ArrayAdapter<CharSequence>adapter=ArrayAdapter.createFromResource(this, R.array.languages, simple_spinner_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_item);
-        autocompleteTV.setAdapter(adapter);
+/*        fragmentManager = getSupportFragmentManager();
+        if (findViewById(R.id.fragment_container)!=null){
 
-        // DarkMode Click
-        btnNightMode.setOnClickListener(new View.OnClickListener() {
+            if(savedInstanceState!=null){return;}
+            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+            HomeFragment homeFragment = new HomeFragment();
+            fragmentTransaction.add(R.id.fragment_container, homeFragment, null);
+            fragmentTransaction.commit();
+        }*/
+
+        btnSettings.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // check current state of a toggle button (true or false).
-                Boolean btnNightModeState = btnNightMode.isChecked();
-                if (btnNightModeState == false) {
-                    // changing the theme to light mode.
-                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-                   }
-                else if (btnNightModeState == true){
-                    // changing the theme to dark mode.
-                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-                }
+                Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        //open Graph Activity
+        btnGraph.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
+                startActivity(intent);
+                //Intent intent = new Intent(MainActivity.this, GraphActivity.class);
+                //startActivity(intent);
+            }
+        });
+
+        //open Game Activity
+        btnStart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //Intent intent = new Intent(MainActivity.this, GameActivity.class);
+                //startActivity(intent);
+            }
+        });
+
+        //open Score Activity
+        btnScore.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //Intent intent = new Intent(MainActivity.this, ScoreActivity.class);
+                //startActivity(intent);
             }
         });
 
 
     }
-
-
-
-
 
 
     ;
