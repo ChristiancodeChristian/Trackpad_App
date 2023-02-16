@@ -2,11 +2,6 @@ package com.example.buildyourownui;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.content.res.Configuration;
-import android.content.res.Resources;
-import android.preference.PreferenceManager;
-
-import java.util.Locale;
 
 public class UsernameManager {
 
@@ -28,4 +23,6 @@ public class UsernameManager {
         editor.apply();
     }
 
+    public static class GameActivity {
+    }
 }

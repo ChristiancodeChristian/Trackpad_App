@@ -1,17 +1,22 @@
 package com.example.buildyourownui;
 
+import static java.security.AccessController.getContext;
+
 import androidx.appcompat.app.AppCompatDelegate;
 
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.RadioButton;
 import android.view.View;
 import android.widget.Switch;
 import android.widget.TextView;
 
+import java.util.ResourceBundle;
 
 
 public class SettingsActivity extends AppCompat {
@@ -19,7 +24,8 @@ public class SettingsActivity extends AppCompat {
     private TextView lblGeneral, lblSettings;
     private Switch switchNightMode;
     private RadioButton rbEnglish, rbGerman;
-    private Button btnChangeUserName, btnBack;
+    private Button btnChangeUserName;
+    private ImageButton btnBack;
     private EditText eTUsername;
 
 
@@ -42,7 +48,7 @@ public class SettingsActivity extends AppCompat {
         UsernameManager usernameManager = new UsernameManager(this);
 
 
-        //!!USERNAME!!
+        /** USERNAME */
         // set Username
         String user = usernameManager.getUser();
         eTUsername.setText(String.format(user));
@@ -60,7 +66,7 @@ public class SettingsActivity extends AppCompat {
         });
 
 
-        // !!LANGUAGE!!
+        /** Language */
         // set right Radiobutton
         rbEnglish.setChecked(lang.UpdateRB("english"));
         rbGerman.setChecked(lang.UpdateRB("german"));
@@ -99,8 +105,8 @@ public class SettingsActivity extends AppCompat {
             }
         });
 
-        // !!DARKMODE!!
-        // DarkMode Click
+        /** Darkmode */
+        // Set DarkMode Theme
         switchNightMode.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -117,11 +123,28 @@ public class SettingsActivity extends AppCompat {
             }
         });
 
-        // !!Back!!
+        // set DarkMode Switch
+        int nightModeFlags =
+                getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK;
+        switch (nightModeFlags) {
+            case Configuration.UI_MODE_NIGHT_YES:
+                switchNightMode.setChecked(true);
+                break;
+
+            case Configuration.UI_MODE_NIGHT_NO:
+                switchNightMode.setChecked(false);
+                break;
+        }
+
+
+
+        /** Go to Main Menu */
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 // back
+                Intent intentMain = new Intent(SettingsActivity.this, MainActivity.class);
+                startActivity(intentMain);
             }
         });
 

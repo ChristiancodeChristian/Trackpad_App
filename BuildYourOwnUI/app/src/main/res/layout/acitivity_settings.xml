@@ -9,19 +9,20 @@
     tools:context=".SettingsActivity">
 
     <ImageButton
-        android:id="@+id/imageButton"
+        android:id="@+id/btnBack"
         android:layout_width="70dp"
         android:layout_height="70dp"
         android:adjustViewBounds="true"
+        android:padding="-0dp"
         android:scaleType="centerInside"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/back" />
+        app:srcCompat="@drawable/homebutton" />
 
     <LinearLayout
+        android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
@@ -31,7 +32,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/btnBack"
+            android:id="@+id/lblSettings"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif-smallcaps"
@@ -191,11 +192,12 @@
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:layout_weight="2"
-                    android:autoText="false"
+                    android:checked="false"
                     android:scaleX="2"
                     android:scaleY="2"
                     android:translationX="-120dp"
                     android:visibility="visible"
+                    tools:checked="false"
                     tools:visibility="visible" />
 
             </TableRow>
@@ -257,7 +259,7 @@
 
             <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" >
+                android:layout_height="match_parent">
 
                 <Space
                     android:layout_width="wrap_content"
