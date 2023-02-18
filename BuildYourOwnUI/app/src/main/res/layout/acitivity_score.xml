@@ -8,10 +8,11 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent">
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="170dp"
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif-smallcaps"
             android:paddingTop="10dp"
@@ -24,18 +25,44 @@
         <ListView
             android:id="@+id/listViewEvents"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="560dp"
             android:entries="@android:array/imProtocols"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent">
 
-        <Button
-            android:id="@+id/btnScore2Graph"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/mainGraph" />
+        </ListView>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageButton
+                android:id="@+id/btnBackScore"
+                android:layout_width="wrap_content"
+                android:layout_height="70dp"
+                android:layout_marginEnd="70dp"
+                android:adjustViewBounds="true"
+                android:padding="-0dp"
+                android:scaleType="centerInside"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/homebutton" />
+
+            <Button
+                android:id="@+id/btnScore2Graph"
+                android:layout_width="127dp"
+                android:layout_height="wrap_content"
+                android:text="@string/mainGraph"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/btnBackScore"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

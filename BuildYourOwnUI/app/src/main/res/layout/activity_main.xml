@@ -9,6 +9,17 @@
     tools:context=".MainActivity">
 
 
+    <pl.droidsonroids.gif.GifImageView
+        android:id="@+id/gifImageView"
+        android:layout_width="500dp"
+        android:layout_height="450dp"
+        android:layout_marginBottom="320dp"
+        android:src="@drawable/molewithhammer"
+        app:layout_constraintBottom_toBottomOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <ImageButton
         android:id="@+id/btnSettings"
         android:layout_width="70dp"
@@ -23,6 +34,15 @@
         app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/setingsicon2" />
 
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="1000dp"
+        android:layout_height="400dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/gifImageView"
+        app:srcCompat="@drawable/soil" />
+
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
@@ -31,14 +51,16 @@
 
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="332dp"
             android:fontFamily="sans-serif-smallcaps"
-            android:paddingTop="50dp"
+            android:paddingTop="65dp"
             android:paddingBottom="50dp"
+            android:rotationX="-13"
+            android:rotationY="33"
             android:text="@string/mainMenu"
             android:textAlignment="center"
             android:textAllCaps="false"
-            android:textSize="70sp"
+            android:textSize="80sp"
             android:textStyle="bold|italic" />
 
         <Button
@@ -64,7 +86,7 @@
             android:textSize="20sp" />
 
         <Button
-            android:id="@+id/btnScores"
+            android:id="@+id/btnScore1"
             android:layout_width="170dp"
             android:layout_height="65dp"
             android:layout_gravity="center"

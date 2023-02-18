@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ListView;
 
 import java.io.File;
@@ -17,6 +18,8 @@ import java.util.Arrays;
 public class ScoreActivity extends AppCompat {
     // initializing variables
     private Button btnScore2Graph;
+
+    private ImageButton btnBackScore;
     private ArrayAdapter<String> listAdapterEvents;
     private ArrayList<String> listData;
     private ListView listViewEvents;
@@ -29,7 +32,7 @@ public class ScoreActivity extends AppCompat {
         // Variables from GUI
         btnScore2Graph = findViewById(R.id.btnScore2Graph);
         listViewEvents = findViewById(R.id.listViewEvents);
-
+        btnBackScore = findViewById(R.id.btnBackScore);
         // Java class
         UsernameManager usernameManager = new UsernameManager(this);
 
@@ -39,6 +42,15 @@ public class ScoreActivity extends AppCompat {
             public void onClick(View view) {
                 Intent intentGraph = new Intent(ScoreActivity.this, GraphActivity.class);
                 startActivity(intentGraph);
+            }
+        });
+
+        btnBackScore.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // back
+                Intent intentMain = new Intent(ScoreActivity.this, MainActivity.class);
+                startActivity(intentMain);
             }
         });
 

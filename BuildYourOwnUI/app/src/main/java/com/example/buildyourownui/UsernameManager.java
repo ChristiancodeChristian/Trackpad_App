@@ -23,6 +23,5 @@ public class UsernameManager {
         editor.apply();
     }
 
-    public static class GameActivity {
-    }
+
 }

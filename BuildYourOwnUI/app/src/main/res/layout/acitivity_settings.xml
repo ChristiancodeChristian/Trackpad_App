@@ -128,34 +128,6 @@
 
             <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:paddingTop="40px">
-
-                <TextView
-                    android:id="@+id/lblVolume"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="sans-serif-smallcaps"
-                    android:text="@string/volume"
-                    android:textSize="24sp" />
-
-                <Space
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1" />
-
-                <SeekBar
-                    android:id="@+id/sliderVolume"
-                    style="@android:style/Widget.DeviceDefault.Light.SeekBar"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:indeterminate="false"
-                    android:max="100"
-                    android:min="0" />
-            </TableRow>
-
-            <TableRow
-                android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
                 <TextView

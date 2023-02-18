@@ -9,7 +9,7 @@ import android.widget.ImageButton;
 
 public class MainActivity extends AppCompat {
     // initializing variables
-    private Button btnStart, btnGraph, btnScore, btnExit;
+    private Button btnStart, btnGraph, btnScore1, btnExit;
     private ImageButton btnSettings;
 
     @Override
@@ -22,7 +22,7 @@ public class MainActivity extends AppCompat {
         btnStart = findViewById(R.id.btnStartMain);
         btnSettings = findViewById(R.id.btnSettings);
         btnGraph = findViewById(R.id.btnGraph);
-        btnScore = findViewById(R.id.btnScores);
+        btnScore1 = findViewById(R.id.btnScore1);
 
         // open Settings Activity
         btnSettings.setOnClickListener(new View.OnClickListener() {
@@ -52,7 +52,7 @@ public class MainActivity extends AppCompat {
         });
 
         //open Score Activity
-        btnScore.setOnClickListener(new View.OnClickListener() {
+        btnScore1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intentScore = new Intent(MainActivity.this, ScoreActivity.class);
