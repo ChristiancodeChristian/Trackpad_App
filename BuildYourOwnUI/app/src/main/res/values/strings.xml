@@ -1,0 +1,31 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name">BuildYourOwnUI</string>
+
+
+    //Settings
+    <string name="selected_language">English</string>
+    <string name="lblSettings">Settings</string>
+    <string name="lblLevel">Easy/Hard</string>
+    <string name="Language">Language</string>
+    <string name="General">General</string>
+    <string name="Background_music">background music</string>
+    <string name="volume">volume</string>
+    <string name="dark_mode">dark mode</string>
+    <string name="TextView">English</string>
+    <string name="Username">Username</string>
+    <string name="Change">Change</string>
+
+    //Login
+    <string name="title" >Hit the \nMole</string>
+    <string name="User" >User name</string>
+    <string name="Password" >Password</string>
+    <string name="Error" >Please type in username!</string>
+
+    //Main
+    <string name="mainMenu" >Main\nMenu</string>
+    <string name="mainGraph" >Graph</string>
+    <string name="mainScore" >Score</string>
+    <string name="mainExit" >Exit</string>
+
+
+</resources>

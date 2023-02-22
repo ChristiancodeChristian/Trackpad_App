@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">BuildYourOwnUI</string>
+
+    //Settings
+    <string name="selected_language">Deutsch</string>
+    <string name="lblSettings">Einstellungen</string>
+    <string name="lblLevel" >Leicht/Schwer</string>
+    <string name="Language" >Sprache</string>
+    <string name="General" >Allgemein</string>
+    <string name="Background_music" >Hintergrundmusik</string>
+    <string name="volume" >Lautstärke</string>
+    <string name="dark_mode" >Dunkelmodus</string>
+    <string name="TextView" >Deutsch</string>
+    <string name="Username">Benutzername</string>
+    <string name="Change">Ändern</string>
+
+    //Login
+    <string name="title" >Hau den \nMaulwurf</string>
+    <string name="User" >Benutzername</string>
+    <string name="Password" >Passwort</string>
+    <string name="Error" >Bitte Benutzername eingeben!</string>
+
+    //Main
+    <string name="mainMenu" >Haupt-\nmenü</string>
+    <string name="mainGraph" >Graph</string>
+    <string name="mainScore" >Ergebnis</string>
+    <string name="mainExit" >Beenden</string>
+
+
+</resources>

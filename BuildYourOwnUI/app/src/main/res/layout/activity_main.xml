@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:scaleX="1"
+    android:scaleY="1"
+    tools:context=".MainActivity">
+
+
+    <pl.droidsonroids.gif.GifImageView
+        android:id="@+id/gifImageView"
+        android:layout_width="500dp"
+        android:layout_height="450dp"
+        android:layout_marginBottom="320dp"
+        android:src="@drawable/molewithhammer"
+        app:layout_constraintBottom_toBottomOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/btnSettings"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:adjustViewBounds="true"
+        android:scaleType="centerInside"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/setingsicon2" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="1000dp"
+        android:layout_height="400dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/gifImageView"
+        app:srcCompat="@drawable/soil" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="332dp"
+            android:fontFamily="sans-serif-smallcaps"
+            android:paddingTop="65dp"
+            android:paddingBottom="50dp"
+            android:rotationX="-13"
+            android:rotationY="33"
+            android:text="@string/mainMenu"
+            android:textAlignment="center"
+            android:textAllCaps="false"
+            android:textSize="80sp"
+            android:textStyle="bold|italic" />
+
+        <Button
+            android:id="@+id/btnStartMain"
+            android:layout_width="220dp"
+            android:layout_height="80dp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="35dp"
+            android:foregroundGravity="center_vertical"
+            android:gravity="center"
+            android:text="Start"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/btnGraph"
+            android:layout_width="170dp"
+            android:layout_height="65dp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="15dp"
+            android:foregroundGravity="center_vertical"
+            android:gravity="center"
+            android:text="@string/mainGraph"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/btnScore1"
+            android:layout_width="170dp"
+            android:layout_height="65dp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="15dp"
+            android:foregroundGravity="center_vertical"
+            android:gravity="center"
+            android:text="@string/mainScore"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/btnExit"
+            android:layout_width="170dp"
+            android:layout_height="65dp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="15dp"
+            android:foregroundGravity="center_vertical"
+            android:gravity="center"
+            android:text="@string/mainExit"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
