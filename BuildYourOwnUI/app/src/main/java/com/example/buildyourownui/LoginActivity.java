@@ -1,6 +1,8 @@
 package com.example.buildyourownui;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
+//import android.support.v7.app.LoginActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -13,6 +15,8 @@ public class LoginActivity extends AppCompat {
     private Button btnStart;
     private TextView lblError;
 
+    private MediaPlayer mediaPlayer;
+
 
 
     @Override
@@ -24,6 +28,16 @@ public class LoginActivity extends AppCompat {
         editUser = findViewById(R.id.editUser);
         btnStart = findViewById(R.id.btnStart);
         lblError = findViewById(R.id.lblError);
+
+        // Load the music file from the app's resources
+        //mediaPlayer = MediaPlayer.create(this, R.raw.ES_Sunny_Field_With_Birds_Organic_Nature_Sounds_1);
+
+        // Loop the music continuously
+        //mediaPlayer.setLooping(true);
+
+        // Start playing the music
+        //mediaPlayer.start();
+
 
         // Java class
         UsernameManager usernameManager = new UsernameManager(this);
@@ -57,6 +71,15 @@ public class LoginActivity extends AppCompat {
         startActivity(intent);
     }
 
+   /* @Override
+    protected void onDestroy() {
+        super.onDestroy();
 
+        // Stop and release the MediaPlayer when the activity is destroyed
+        if (mediaPlayer != null) {
+            mediaPlayer.stop();
+            mediaPlayer.release();
+        }
+    }*/
 
 }
