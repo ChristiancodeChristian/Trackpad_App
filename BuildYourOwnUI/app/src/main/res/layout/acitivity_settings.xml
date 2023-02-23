@@ -215,7 +215,7 @@
 
                 <TextView
                     android:id="@+id/lblUsername"
-                    android:layout_width="wrap_content"
+                    android:layout_width="168dp"
                     android:layout_height="wrap_content"
                     android:fontFamily="sans-serif-smallcaps"
                     android:text="@string/Username"
