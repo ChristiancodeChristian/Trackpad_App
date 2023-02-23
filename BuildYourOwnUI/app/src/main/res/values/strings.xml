@@ -27,5 +27,9 @@
     <string name="mainScore" >Score</string>
     <string name="mainExit" >Exit</string>
 
+    //Device choise
+    <string name="selectmobile" >Mobile</string>
+    <string name="selecttrackpad" >Trackpad</string>
+
 
 </resources>
