@@ -13,12 +13,12 @@
     <string name="volume" >Lautstärke</string>
     <string name="dark_mode" >Dunkelmodus</string>
     <string name="TextView" >Deutsch</string>
-    <string name="Username">Benutzername</string>
+    <string name="Username">Benutzer</string>
     <string name="Change">Ändern</string>
 
     //Login
     <string name="title" >Hau den \nMaulwurf</string>
-    <string name="User" >Benutzername</string>
+    <string name="User" >Benutzer</string>
     <string name="Password" >Passwort</string>
     <string name="Error" >Bitte Benutzername eingeben!</string>
 

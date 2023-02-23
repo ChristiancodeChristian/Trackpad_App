@@ -11,8 +11,8 @@
 
     <pl.droidsonroids.gif.GifImageView
         android:id="@+id/gifImageView"
-        android:layout_width="500dp"
-        android:layout_height="450dp"
+        android:layout_width="600dp"
+        android:layout_height="550dp"
         android:layout_marginBottom="320dp"
         android:src="@drawable/molewithhammer"
         app:layout_constraintBottom_toBottomOf="@+id/linearLayout"
@@ -24,7 +24,7 @@
         android:id="@+id/btnSettings"
         android:layout_width="70dp"
         android:layout_height="70dp"
-        android:adjustViewBounds="true"
+        android:backgroundTint="#00FFFFFF"
         android:scaleType="centerInside"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
@@ -37,10 +37,13 @@
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="1000dp"
-        android:layout_height="400dp"
+        android:layout_height="500dp"
+        android:layout_marginTop="300dp"
+        android:background="#00451F04"
+        app:layout_constraintBottom_toBottomOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/gifImageView"
+        app:layout_constraintTop_toTopOf="@+id/linearLayout"
         app:srcCompat="@drawable/soil" />
 
     <LinearLayout

@@ -12,12 +12,12 @@
     <string name="volume">volume</string>
     <string name="dark_mode">dark mode</string>
     <string name="TextView">English</string>
-    <string name="Username">Username</string>
+    <string name="Username">User:</string>
     <string name="Change">Change</string>
 
     //Login
     <string name="title" >Hit the \nMole</string>
-    <string name="User" >User name</string>
+    <string name="User" >User:</string>
     <string name="Password" >Password</string>
     <string name="Error" >Please type in username!</string>
 
