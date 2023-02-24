@@ -2,7 +2,7 @@ package com.example.buildyourownui;
 
 import android.content.Intent;
 import android.media.MediaPlayer;
-//import android.support.v7.app.LoginActivity;
+//import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -30,14 +30,13 @@ public class LoginActivity extends AppCompat {
         lblError = findViewById(R.id.lblError);
 
         // Load the music file from the app's resources
-        //mediaPlayer = MediaPlayer.create(this, R.raw.ES_Sunny_Field_With_Birds_Organic_Nature_Sounds_1);
+        mediaPlayer = MediaPlayer.create(this, R.raw.loginmusicfile_1);
 
         // Loop the music continuously
-        //mediaPlayer.setLooping(true);
+        mediaPlayer.setLooping(true);
 
         // Start playing the music
-        //mediaPlayer.start();
-
+        mediaPlayer.start();
 
         // Java class
         UsernameManager usernameManager = new UsernameManager(this);
@@ -71,7 +70,7 @@ public class LoginActivity extends AppCompat {
         startActivity(intent);
     }
 
-   /* @Override
+    @Override
     protected void onDestroy() {
         super.onDestroy();
 
@@ -80,6 +79,6 @@ public class LoginActivity extends AppCompat {
             mediaPlayer.stop();
             mediaPlayer.release();
         }
-    }*/
+    }
 
 }
