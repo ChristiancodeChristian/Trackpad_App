@@ -1,9 +1,9 @@
 package com.example.buildyourownui;
 
 //package com.github.mikephil.charting.charts;
-import com.github.mikephil.charting.charts.GraphHelper;
+//import com.github.mikephil.charting.charts.GraphHelper;
 
-import androidx.appcompat.app.AppCompatActivity;
+/*import androidx.appcompat.app.AppCompatActivity;
 import android.graphics.Color;
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.data.BarData;
@@ -12,7 +12,7 @@ import com.github.mikephil.charting.data.BarEntry;
 
 import com.github.mikephil.charting.utils.ColorTemplate;
 
-import com.github.mikephil.charting.utils.ColorTemplate;
+import com.github.mikephil.charting.utils.ColorTemplate;*/
 
 
 
@@ -22,7 +22,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 
-import com.github.mikephil.charting.charts.GraphHelper;
+//import com.github.mikephil.charting.charts.GraphHelper;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,7 +31,7 @@ public class GraphActivity extends AppCompat {
     // initializing variables
     private Button btnGraph2Score;
     private ImageButton btnGraph2Home;
-    private List<BarEntry> barArraylist;
+   // private List<BarEntry> barArraylist;
 
 
     @Override
@@ -46,7 +46,7 @@ public class GraphActivity extends AppCompat {
         btnGraph2Home = findViewById(R.id.imbtnGraph_Home);
 
 
-        //GraphHelper graphHelper = new GraphHelper( this);
+        /*GraphHelper graphHelper = new GraphHelper( this);
 
         BarChart barChart = findViewById(R.id.barchart);
         getData();
@@ -59,7 +59,7 @@ public class GraphActivity extends AppCompat {
         barDataSet.setValueTextColor(Color.BLACK);
         //setting text size
         barDataSet.setValueTextSize(16f);
-        barChart.getDescription().setEnabled(true);
+        barChart.getDescription().setEnabled(true);*/
 
 
 
@@ -83,7 +83,7 @@ public class GraphActivity extends AppCompat {
             }
         });
     }
-    private void getData()
+ /*   private void getData()
     {
         ArrayList barArraylist = new ArrayList();
         barArraylist.add(new BarEntry(2f,10));
@@ -92,6 +92,6 @@ public class GraphActivity extends AppCompat {
         barArraylist.add(new BarEntry(5f,40));
         barArraylist.add(new BarEntry(6f,50));
 
-    }
+    }*/
 
 }
