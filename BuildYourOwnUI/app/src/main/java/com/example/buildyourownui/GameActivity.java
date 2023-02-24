@@ -170,14 +170,22 @@ public class GameActivity extends AppCompat {
     }
     private void incrementCounter() {
 
+<<<<<<< Updated upstream
         mCounter = mCounter++;
         //mCounterText.setText("Counter: " + mCounter);
         scorecounter.setText(mCounter);
         if (mCounter >= 25) {
+=======
+        mCounter = 1;
+        //mCounterText.setText("Counter: " + mCounter);
+        scorecounter.setText(String.valueOf(mCounter));
+
+/*        if (mCounter >= 25) {
+>>>>>>> Stashed changes
             // Launch a new activity when counter reaches 25
             Intent intentFin = new Intent(GameActivity.this, ScoreActivity.class);
             startActivity(intentFin);
-        }
+        }*/
     }
     @Override
     protected void onDestroy() {
