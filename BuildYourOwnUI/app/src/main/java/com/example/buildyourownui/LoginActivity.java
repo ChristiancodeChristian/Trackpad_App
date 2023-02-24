@@ -52,6 +52,7 @@ public class LoginActivity extends AppCompat {
                 if (editUser.getText().toString().isEmpty()==false) {
                     // username entered
                     launchMainActivity();
+                    //launchSelectActivity();
                 }
                 else{
                     // no username entered
@@ -70,6 +71,12 @@ public class LoginActivity extends AppCompat {
         Intent intent = new Intent(LoginActivity.this, MainActivity.class);
         startActivity(intent);
     }
+/*
+    private void launchSelectActivity(){
+    Intent intent = new Intent(LoginActivity.this, SelectActivity.class);
+    startActivity(intent);
+    }
+*/
 
    /* @Override
     protected void onDestroy() {
