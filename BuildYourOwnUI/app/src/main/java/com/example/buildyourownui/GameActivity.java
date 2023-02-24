@@ -73,7 +73,7 @@ public class GameActivity extends AppCompat {
             @Override
             public void onClick(View v) {
                 // increase Counter by 1
-                //incrementCounter();
+                incrementCounter();
                 // Change button's background color to green
                 Mole1_2.setBackgroundColor(Color.GREEN);
                 // Delayed color change back to gray after 1 second
@@ -84,7 +84,7 @@ public class GameActivity extends AppCompat {
             @Override
             public void onClick(View v) {
                 // increase Counter by 1
-                //incrementCounter();
+                incrementCounter();
                 // Change button's background color to green
                 Mole1_3.setBackgroundColor(Color.GREEN);
                 // Delayed color change back to gray after 1 second
@@ -95,7 +95,7 @@ public class GameActivity extends AppCompat {
             @Override
             public void onClick(View v) {
                 // increase Counter by 1
-                //incrementCounter();
+                incrementCounter();
                 // Change button's background color to green
                 Mole2_1.setBackgroundColor(Color.GREEN);
                 // Delayed color change back to gray after 1 second
@@ -106,7 +106,7 @@ public class GameActivity extends AppCompat {
             @Override
             public void onClick(View v) {
                 // increase Counter by 1
-                //incrementCounter();
+                incrementCounter();
                 // Change button's background color to green
                 Mole2_2.setBackgroundColor(Color.GREEN);
                 // Delayed color change back to gray after 1 second
@@ -117,7 +117,7 @@ public class GameActivity extends AppCompat {
             @Override
             public void onClick(View v) {
                 // increase Counter by 1
-                //incrementCounter();
+                incrementCounter();
                 // Change button's background color to green
                 Mole2_3.setBackgroundColor(Color.GREEN);
                 // Delayed color change back to gray after 1 second
@@ -128,7 +128,7 @@ public class GameActivity extends AppCompat {
             @Override
             public void onClick(View v) {
                 // increase Counter by 1
-                //incrementCounter();
+                incrementCounter();
                 // Change button's background color to green
                 Mole3_1.setBackgroundColor(Color.GREEN);
                 // Delayed color change back to gray after 1 second
@@ -139,7 +139,7 @@ public class GameActivity extends AppCompat {
             @Override
             public void onClick(View v) {
                 // increase Counter by 1
-                //incrementCounter();
+                incrementCounter();
                 // Change button's background color to green
                 Mole3_2.setBackgroundColor(Color.GREEN);
                 // Delayed color change back to gray after 1 second
@@ -150,7 +150,7 @@ public class GameActivity extends AppCompat {
             @Override
             public void onClick(View v) {
                 // increase Counter by 1
-                //incrementCounter();
+                incrementCounter();
                 // Change button's background color to green
                 Mole3_3.setBackgroundColor(Color.GREEN);
                 // Delayed color change back to gray after 1 second
@@ -170,7 +170,7 @@ public class GameActivity extends AppCompat {
     }
     private void incrementCounter() {
 
-        mCounter = 1;
+        mCounter = mCounter +1;
         //mCounterText.setText("Counter: " + mCounter);
         scorecounter.setText(String.valueOf(mCounter));
 
