@@ -1,7 +1,6 @@
 package com.example.buildyourownui;
 
-import static java.security.AccessController.getContext;
-
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 
 import android.content.Intent;
@@ -11,12 +10,13 @@ import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.view.View;
 import android.widget.Switch;
 import android.widget.TextView;
 
-import java.util.ResourceBundle;
+import java.util.ArrayList;
 
 
 public class SettingsActivity extends AppCompat {
@@ -150,6 +150,4 @@ public class SettingsActivity extends AppCompat {
 
     }
 
-
-    ;
 }

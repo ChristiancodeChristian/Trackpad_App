@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.media.MediaPlayer;
 
 
 public class MainActivity extends AppCompat {
@@ -12,6 +13,7 @@ public class MainActivity extends AppCompat {
     private Button btnStart, btnGraph, btnScore1, btnExit;
     private ImageButton btnSettings;
 
+    private MediaPlayer mediaPlayer;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,6 +25,17 @@ public class MainActivity extends AppCompat {
         btnSettings = findViewById(R.id.btnSettings);
         btnGraph = findViewById(R.id.btnGraph);
         btnScore1 = findViewById(R.id.btnScore1);
+
+
+        // Load the music file from the app's resources
+        mediaPlayer = MediaPlayer.create(this, R.raw.loginmusicfile_1);
+
+        // Loop the music continuously
+        mediaPlayer.setLooping(true);
+
+        // Start playing the music
+        mediaPlayer.start();
+
 
         // open Settings Activity
         btnSettings.setOnClickListener(new View.OnClickListener() {
@@ -60,6 +73,8 @@ public class MainActivity extends AppCompat {
             }
         });
 
+
+
         //close App
         btnExit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -70,5 +85,15 @@ public class MainActivity extends AppCompat {
 
 
     };
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
+        // Stop and release the MediaPlayer when the activity is destroyed
+        if (mediaPlayer != null) {
+            mediaPlayer.stop();
+            mediaPlayer.release();
+        }
+    }
 
 }

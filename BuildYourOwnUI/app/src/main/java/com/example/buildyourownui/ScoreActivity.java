@@ -32,7 +32,7 @@ public class ScoreActivity extends AppCompat {
         // Variables from GUI
         btnScore2Graph = findViewById(R.id.btnScore2Graph);
         listViewEvents = findViewById(R.id.listViewEvents);
-        btnBackScore = findViewById(R.id.btnBackScore);
+        btnBackScore = findViewById(R.id.btnscore2home);
         // Java class
         UsernameManager usernameManager = new UsernameManager(this);
 
