@@ -15,7 +15,7 @@ public class GameActivity extends AppCompat {
     // initializing variables
     private ImageButton btngame2main;
 
-    TextView scorecounter;
+    private TextView scorecounter;
     private ImageButton Mole1_1,Mole1_2,Mole1_3,Mole2_1,Mole2_2,Mole2_3,Mole3_1,Mole3_2,Mole3_3;
     private Handler mHandler;
     private Runnable mRunnable;
@@ -170,8 +170,8 @@ public class GameActivity extends AppCompat {
     }
     private void incrementCounter() {
 
-        mCounter = 1;
-        mCounterText.setText("Counter: " + mCounter);
+        mCounter = mCounter++;
+        //mCounterText.setText("Counter: " + mCounter);
         scorecounter.setText(mCounter);
         if (mCounter >= 25) {
             // Launch a new activity when counter reaches 25
