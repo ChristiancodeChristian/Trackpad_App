@@ -79,10 +79,10 @@ public class MainActivity extends AppCompat {
         btnExit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                MainActivity.this.finish(); //exits the activity
+                MainActivity.this.finish();
             }
         });
-
+        //exits the activity
 
     };
     @Override
