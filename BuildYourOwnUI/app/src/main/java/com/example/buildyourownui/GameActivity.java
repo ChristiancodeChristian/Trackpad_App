@@ -17,7 +17,7 @@ public class GameActivity extends AppCompat {
         setContentView(R.layout.acitivity_game);
 
         // Variables from GUI
-
+        btngame2main = findViewById(R.id.btngame2main);
 
         btngame2main.setOnClickListener(new View.OnClickListener() {
             @Override
