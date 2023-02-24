@@ -9,13 +9,13 @@ import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
-<<<<<<< HEAD
-import com.github.mikephil.charting.utils.ColorTemplate;*/
-=======
+
+import com.github.mikephil.charting.utils.ColorTemplate;
+
 import com.github.mikephil.charting.utils.ColorTemplate;
 
 
->>>>>>> 2056b254151be50a1718247b60bd341280fff6f7
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
