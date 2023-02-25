@@ -6,6 +6,7 @@ import android.os.Handler;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.media.MediaPlayer;
 import android.os.SystemClock;
@@ -45,6 +46,9 @@ public class GameActivity extends AppCompat {
     int secs = 0;
     int mins = 0;
     int milliseconds = 0;
+    int difficulty;
+    int easy = 25;
+    int hard = 40;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,6 +68,7 @@ public class GameActivity extends AppCompat {
         Mole9 = findViewById(R.id.Mole9);
         scorecounter = (TextView) findViewById(R.id.scorecount);
         TextViewtime = (TextView) findViewById(R.id.textViewtime);
+
         // Initialize handler and runnable for delayed color change
         mHandler = new Handler();
         mRunnable = new Runnable() {
@@ -232,8 +237,14 @@ public class GameActivity extends AppCompat {
         mCounter = mCounter +1;
         //mCounterText.setText("Counter: " + mCounter);
         scorecounter.setText(String.valueOf(mCounter));
+        if (SettingsActivity.switchhardeasy == 1){
+            difficulty = easy;
+        }
+        else
 
-        if (mCounter >= 2) {
+            difficulty = hard;
+
+        if (mCounter >= difficulty) {
             // Launch a new activity when counter reaches 25
 
             ScoreActivity.time = "" + mins + ":"
@@ -274,7 +285,7 @@ public class GameActivity extends AppCompat {
                 activateButton(buttonIndex);
                 scheduleRandomButtonActivation();
             }
-        }, random.nextInt(5000) + 1);
+        }, random.nextInt(1000) + 1);
     }
 
     public void onClick(View view) {
