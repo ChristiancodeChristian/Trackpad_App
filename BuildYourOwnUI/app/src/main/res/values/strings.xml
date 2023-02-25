@@ -31,5 +31,8 @@
     <string name="selectmobile" >Mobile</string>
     <string name="selecttrackpad" >Trackpad</string>
 
+    //Game Trackpad
+    <string name="description" >Please focus on the trackpad in front of you. \n\nGood luck!</string>
+
 
 </resources>

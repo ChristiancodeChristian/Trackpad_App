@@ -32,5 +32,8 @@
     <string name="selectmobile" >Handy</string>
     <string name="selecttrackpad" >Tastenfeld</string>
 
+    //Game Trackpad
+    <string name="description" >Konzentriere dich auf das Trackpad vor dir. \n\nViel Erfolg</string>
+
 
 </resources>

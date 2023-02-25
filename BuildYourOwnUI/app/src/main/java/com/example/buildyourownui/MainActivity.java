@@ -1,5 +1,7 @@
 package com.example.buildyourownui;
 
+import static com.example.buildyourownui.SelectActivity.gameModi;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -59,8 +61,16 @@ public class MainActivity extends AppCompat {
         btnStart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intentGame = new Intent(MainActivity.this, GameActivity.class);
-                startActivity(intentGame);
+                
+                if(gameModi == false){
+                    Intent intentGame = new Intent(MainActivity.this, GameActivity.class);
+                    startActivity(intentGame);
+                }
+                else{
+                    Intent intentGame = new Intent(MainActivity.this, GameTrackpadActivity.class);
+                    startActivity(intentGame);
+                }
+
             }
         });
 
