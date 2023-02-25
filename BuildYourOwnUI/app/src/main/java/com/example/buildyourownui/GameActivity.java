@@ -233,10 +233,12 @@ public class GameActivity extends AppCompat {
         //mCounterText.setText("Counter: " + mCounter);
         scorecounter.setText(String.valueOf(mCounter));
 
-        if (mCounter >= 25) {
+        if (mCounter >= 2) {
             // Launch a new activity when counter reaches 25
 
-            ScoreActivity.String time = "new value";
+            ScoreActivity.time = "" + mins + ":"
+                    + String.format("%02d", secs) + ":"
+                    + String.format("%03d", milliseconds);
             Intent intentFin = new Intent(GameActivity.this, ScoreActivity.class);
             startActivity(intentFin);
         }

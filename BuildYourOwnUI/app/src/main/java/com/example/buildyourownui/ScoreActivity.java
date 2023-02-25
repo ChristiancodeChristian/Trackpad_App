@@ -23,7 +23,7 @@ public class ScoreActivity extends AppCompat {
     private ArrayAdapter<String> listAdapterEvents;
     private ArrayList<String> listData;
     private ListView listViewEvents;
-
+    public static String time;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,6 +35,8 @@ public class ScoreActivity extends AppCompat {
         btnBackScore = findViewById(R.id.btnscore2home);
         // Java class
         UsernameManager usernameManager = new UsernameManager(this);
+
+
 
         //open Graph Activity
         btnScore2Graph.setOnClickListener(new View.OnClickListener() {
@@ -68,7 +70,7 @@ public class ScoreActivity extends AppCompat {
 
         //Test of list:
         String user = usernameManager.getUser();
-        String time = "5s";
+        //String time = "5s";
         String score = "1243";
 
         // put new item to score list
