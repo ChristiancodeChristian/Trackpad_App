@@ -31,9 +31,11 @@
     //Device choise
     <string name="selectmobile" >Handy</string>
     <string name="selecttrackpad" >Tastenfeld</string>
+    <string name="question" >Möchtest du dich mit dem Trackpad Gerät verbinden und spielen?</string>
 
     //Game Trackpad
-    <string name="description" >Konzentriere dich auf das Trackpad vor dir. \n\nViel Erfolg</string>
+    <string name="ready" >Bist du bereit?</string>
+    <string name="luck" >Viel Erfolg!</string>
 
 
 </resources>

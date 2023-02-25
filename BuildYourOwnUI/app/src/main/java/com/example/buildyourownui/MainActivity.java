@@ -1,6 +1,7 @@
 package com.example.buildyourownui;
 
 import static com.example.buildyourownui.SelectActivity.gameModi;
+import static com.example.buildyourownui.SettingsActivity.StateOfBackgroundMusic;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.media.MediaPlayer;
+import android.widget.ToggleButton;
 
 
 public class MainActivity extends AppCompat {
@@ -15,7 +17,8 @@ public class MainActivity extends AppCompat {
     private Button btnStart, btnGraph, btnScore1, btnExit;
     private ImageButton btnSettings;
 
-    private MediaPlayer mediaPlayer;
+
+    public static MediaPlayer mediaPlayer;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,7 +39,11 @@ public class MainActivity extends AppCompat {
         mediaPlayer.setLooping(true);
 
         // Start playing the music
-        mediaPlayer.start();
+            mediaPlayer.start();
+
+
+
+
 
 
         // open Settings Activity
@@ -61,7 +68,7 @@ public class MainActivity extends AppCompat {
         btnStart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                
+
                 if(gameModi == false){
                     Intent intentGame = new Intent(MainActivity.this, GameActivity.class);
                     startActivity(intentGame);

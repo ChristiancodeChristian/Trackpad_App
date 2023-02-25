@@ -1,5 +1,7 @@
 package com.example.buildyourownui;
 
+import static com.example.buildyourownui.MainActivity.mediaPlayer;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 
@@ -15,6 +17,7 @@ import android.widget.RadioButton;
 import android.view.View;
 import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.ToggleButton;
 
 import java.util.ArrayList;
 
@@ -27,8 +30,13 @@ public class SettingsActivity extends AppCompat {
     private Button btnChangeUserName;
     private ImageButton btnBack;
     private EditText eTUsername;
+    public ToggleButton btnBackgroundMusic;
+    private ToggleButton btnSounds;
+    private Switch switchEasyHard;
 
     public static int switchhardeasy;
+    public static boolean StateOfBackgroundMusic;
+    public static boolean StateOfSound;
 
 
     @Override
@@ -44,7 +52,10 @@ public class SettingsActivity extends AppCompat {
         eTUsername = findViewById(R.id.eTUsername);
         btnChangeUserName = findViewById(R.id.btnChangeUserName);
         btnBack = findViewById(R.id.btnBack);
-        Switch switchButton = findViewById(R.id.switchEasyHard);
+        btnBackgroundMusic = findViewById(R.id.btnBackgroundMusic);
+        btnSounds = findViewById(R.id.btnSounds);
+        switchEasyHard = findViewById(R.id.switchEasyHard);
+
 
         // Java class
         LanguageManager lang = new LanguageManager( this);
@@ -66,6 +77,29 @@ public class SettingsActivity extends AppCompat {
                 // set Username
                 String user = usernameManager.getUser();
                 eTUsername.setText(String.format(user));
+            }
+        });
+
+        /** Background music */
+        StateOfBackgroundMusic = btnBackgroundMusic.isChecked();
+        btnBackgroundMusic.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (StateOfBackgroundMusic == false){
+                    mediaPlayer.pause();
+                }
+                else {
+                    mediaPlayer.start();
+                }
+            }
+        });
+
+        /** Sounds */
+        StateOfSound = btnSounds.isChecked();
+        btnSounds.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                
             }
         });
 
@@ -140,7 +174,7 @@ public class SettingsActivity extends AppCompat {
                 break;
         }
 
-        switchButton.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        switchEasyHard.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
