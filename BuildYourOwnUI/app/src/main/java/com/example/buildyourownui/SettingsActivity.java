@@ -28,6 +28,8 @@ public class SettingsActivity extends AppCompat {
     private ImageButton btnBack;
     private EditText eTUsername;
 
+    public static int switchhardeasy;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,10 +44,12 @@ public class SettingsActivity extends AppCompat {
         eTUsername = findViewById(R.id.eTUsername);
         btnChangeUserName = findViewById(R.id.btnChangeUserName);
         btnBack = findViewById(R.id.btnBack);
+        Switch switchButton = findViewById(R.id.switchEasyHard);
 
         // Java class
         LanguageManager lang = new LanguageManager( this);
         UsernameManager usernameManager = new UsernameManager(this);
+
 
 
         /** USERNAME */
@@ -136,7 +140,16 @@ public class SettingsActivity extends AppCompat {
                 break;
         }
 
-
+        switchButton.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    switchhardeasy = 2;
+                } else {
+                    switchhardeasy = 1;
+                }
+            }
+        });
 
         /** Go to Main Menu */
         btnBack.setOnClickListener(new View.OnClickListener() {
