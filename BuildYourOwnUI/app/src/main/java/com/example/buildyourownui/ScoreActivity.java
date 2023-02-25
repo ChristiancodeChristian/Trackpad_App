@@ -78,7 +78,7 @@ public class ScoreActivity extends AppCompat {
 
     }
 
-    private void addListItem(String user, String time, String score){
+    public void addListItem(String user, String time, String score){
         //combine timestamp and parameter
         listData.add(String.format("%s %s %s", user, time, score));
 

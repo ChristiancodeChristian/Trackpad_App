@@ -46,14 +46,14 @@
                 android:layout_height="match_parent">
 
                 <ImageButton
-                    android:id="@+id/Mole1_1"
+                    android:id="@+id/Mole1"
                     android:layout_width="112dp"
                     android:layout_height="match_parent"
                     android:scaleType="fitCenter"
                     app:srcCompat="@drawable/lustiger_maulwurf_im_garten_maulwurf_design_sticker" />
 
                 <ImageButton
-                    android:id="@+id/Mole1_2"
+                    android:id="@+id/Mole2"
                     android:layout_width="134dp"
                     android:layout_height="150dp"
                     android:scaleType="centerInside"
@@ -61,7 +61,7 @@
                     tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck" />
 
                 <ImageButton
-                    android:id="@+id/Mole1_3"
+                    android:id="@+id/Mole3"
                     android:layout_width="138dp"
                     android:layout_height="150dp"
                     android:scaleType="centerInside"
@@ -74,21 +74,21 @@
                 android:layout_height="match_parent">
 
                 <ImageButton
-                    android:id="@+id/Mole2_1"
+                    android:id="@+id/Mole4"
                     android:layout_width="133dp"
                     android:layout_height="150dp"
                     android:scaleType="fitCenter"
                     app:srcCompat="@drawable/lustiger_maulwurf_im_garten_maulwurf_design_sticker" />
 
                 <ImageButton
-                    android:id="@+id/Mole2_2"
+                    android:id="@+id/Mole5"
                     android:layout_width="103dp"
                     android:layout_height="150dp"
                     android:scaleType="fitCenter"
                     app:srcCompat="@drawable/lustiger_maulwurf_im_garten_maulwurf_design_sticker" />
 
                 <ImageButton
-                    android:id="@+id/Mole2_3"
+                    android:id="@+id/Mole6"
                     android:layout_width="102dp"
                     android:layout_height="150dp"
                     android:scaleType="fitCenter"
@@ -100,21 +100,21 @@
                 android:layout_height="match_parent">
 
                 <ImageButton
-                    android:id="@+id/Mole3_1"
+                    android:id="@+id/Mole7"
                     android:layout_width="120dp"
                     android:layout_height="150dp"
                     android:scaleType="fitCenter"
                     app:srcCompat="@drawable/lustiger_maulwurf_im_garten_maulwurf_design_sticker" />
 
                 <ImageButton
-                    android:id="@+id/Mole3_2"
+                    android:id="@+id/Mole8"
                     android:layout_width="138dp"
                     android:layout_height="match_parent"
                     android:scaleType="fitCenter"
                     app:srcCompat="@drawable/lustiger_maulwurf_im_garten_maulwurf_design_sticker" />
 
                 <ImageButton
-                    android:id="@+id/Mole3_3"
+                    android:id="@+id/Mole9"
                     android:layout_width="140dp"
                     android:layout_height="match_parent"
                     android:scaleType="fitCenter"
@@ -133,14 +133,44 @@
                 android:layout_width="wrap_content"
                 android:layout_height="45dp"
                 android:layout_weight="1"
-                android:text="Time" />
+                android:gravity="center"
+                android:text="Points:"
+                android:textSize="30sp" />
 
             <TextView
                 android:id="@+id/scorecount"
                 android:layout_width="wrap_content"
                 android:layout_height="45dp"
                 android:layout_weight="1"
-                android:text="TextView" />
+                android:gravity="center|right"
+                android:text="0"
+                android:textSize="30sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textViewTimer"
+                android:layout_width="208dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Time:"
+                android:textSize="30sp" />
+
+            <TextView
+                android:id="@+id/textViewtime"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center|right"
+                android:text="00:00:000"
+                android:textSize="30sp" />
+
         </LinearLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
