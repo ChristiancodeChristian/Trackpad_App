@@ -178,9 +178,9 @@ public class SettingsActivity extends AppCompat {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
-                    switchhardeasy = 2;
-                } else {
                     switchhardeasy = 1;
+                } else {
+                    switchhardeasy = 2;
                 }
             }
         });

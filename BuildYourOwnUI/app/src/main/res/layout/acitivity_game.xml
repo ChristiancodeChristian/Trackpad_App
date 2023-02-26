@@ -5,6 +5,18 @@
     android:layout_height="wrap_content"
     tools:context=".MainActivity">
 
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="1500dp"
+        android:layout_height="750dp"
+        android:layout_marginTop="300dp"
+        android:background="#00451F04"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/linearLayout"
+        app:srcCompat="@drawable/soil" />
+
     <ImageButton
         android:id="@+id/btngame2main"
         android:layout_width="70dp"
