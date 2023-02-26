@@ -17,12 +17,19 @@ import com.github.mikephil.charting.utils.ColorTemplate;*/
 
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 
 //import com.github.mikephil.charting.charts.GraphHelper;
+
+import com.github.mikephil.charting.charts.BarChart;
+import com.github.mikephil.charting.data.BarData;
+import com.github.mikephil.charting.data.BarDataSet;
+import com.github.mikephil.charting.data.BarEntry;
+import com.github.mikephil.charting.utils.ColorTemplate;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,7 +39,9 @@ public class GraphActivity extends AppCompat {
     private Button btnGraph2Score;
     private ImageButton btnGraph2Home;
    // private List<BarEntry> barArraylist;
-
+    private BarChart barChart;
+    private BarChart barchartreacttime;
+    ArrayList barArraylist;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -44,12 +53,16 @@ public class GraphActivity extends AppCompat {
         // Variables from GUI
         btnGraph2Score = findViewById(R.id.btnGraph2Score);
         btnGraph2Home = findViewById(R.id.imbtnGraph_Home);
+        barChart = findViewById(R.id.barChartscore);
+        barchartreacttime = findViewById(R.id.barChartreacttime);
 
 
-        /*GraphHelper graphHelper = new GraphHelper( this);
+        //GraphHelper graphHelper = new GraphHelper( this);
 
-        BarChart barChart = findViewById(R.id.barchart);
+        //BarChart barChart = findViewById(R.id.barchart);
         getData();
+
+
         BarDataSet barDataSet = new BarDataSet(barArraylist,"Cambo Tutorial");
         BarData barData = new BarData(barDataSet);
         barChart.setData(barData);
@@ -57,10 +70,9 @@ public class GraphActivity extends AppCompat {
         barDataSet.setColors(ColorTemplate.COLORFUL_COLORS);
         //text color
         barDataSet.setValueTextColor(Color.BLACK);
-        //setting text size
+        //settting text size
         barDataSet.setValueTextSize(16f);
-        barChart.getDescription().setEnabled(true);*/
-
+        barChart.getDescription().setEnabled(true);
 
 
 
@@ -83,7 +95,7 @@ public class GraphActivity extends AppCompat {
             }
         });
     }
- /*   private void getData()
+    private void getData()
     {
         ArrayList barArraylist = new ArrayList();
         barArraylist.add(new BarEntry(2f,10));
@@ -92,6 +104,6 @@ public class GraphActivity extends AppCompat {
         barArraylist.add(new BarEntry(5f,40));
         barArraylist.add(new BarEntry(6f,50));
 
-    }*/
+    }
 
 }
