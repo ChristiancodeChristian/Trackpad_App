@@ -300,6 +300,13 @@ public class GameActivity extends AppCompat {
             @Override
             public void onClick(View view) {
                 // back
+                if (mediaPlayerpunch.isPlaying()) {
+                    mediaPlayerpunch.stop();
+                }
+
+                if(mediaPlayer.isPlaying()) {
+                    mediaPlayer.stop();
+                }
                 Intent intentMain = new Intent(GameActivity.this, MainActivity.class);
                 startActivity(intentMain);
             }
@@ -326,13 +333,21 @@ public class GameActivity extends AppCompat {
                     + String.format("%02d", secs) + ":"
                     + String.format("%03d", milliseconds);
 
-            if (mediaPlayer != null) {
-                mediaPlayer.stop();
-                mediaPlayer.release();
+            if (mediaPlayerpunch.isPlaying()) {
+                mediaPlayerpunch.stop();
             }
+
+            if(mediaPlayer.isPlaying()) {
+                mediaPlayer.stop();
+            }
+
             if (mediaPlayerpunch != null) {
                 mediaPlayerpunch.stop();
                 mediaPlayerpunch.release();
+            }
+            if (mediaPlayer != null) {
+                mediaPlayer.stop();
+                mediaPlayer.release();
             }
             Intent intentFin = new Intent(GameActivity.this, ScoreActivity.class);
             startActivity(intentFin);
