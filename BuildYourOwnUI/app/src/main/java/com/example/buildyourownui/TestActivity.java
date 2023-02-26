@@ -21,7 +21,7 @@ public class TestActivity extends AppCompat {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test);
 
-        chart = findViewById(R.id.barChart);
+        chart = findViewById(R.id.barChartscore);
         //scoreTimeText = findViewById(R.id.score_time_text);
 
         // Set up the chart

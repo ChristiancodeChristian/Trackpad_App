@@ -18,6 +18,7 @@ import com.github.mikephil.charting.utils.ColorTemplate;*/
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -29,18 +30,19 @@ import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
-import com.github.mikephil.charting.utils.ColorTemplate;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class GraphActivity extends AppCompat {
     // initializing variables
     private Button btnGraph2Score;
     private ImageButton btnGraph2Home;
    // private List<BarEntry> barArraylist;
-    private BarChart barChart;
+    private BarChart barChartscore;
     private BarChart barchartreacttime;
+    private BarChart chart;
+
+    private MediaPlayer mediaPlayer;
     ArrayList barArraylist;
 
     @Override
@@ -53,26 +55,88 @@ public class GraphActivity extends AppCompat {
         // Variables from GUI
         btnGraph2Score = findViewById(R.id.btnGraph2Score);
         btnGraph2Home = findViewById(R.id.imbtnGraph_Home);
-        barChart = findViewById(R.id.barChartscore);
+        barChartscore = findViewById(R.id.barChartscore);
         barchartreacttime = findViewById(R.id.barChartreacttime);
 
 
-        //GraphHelper graphHelper = new GraphHelper( this);
+        // Load the music file from the app's resources
+        mediaPlayer = MediaPlayer.create(this, R.raw.loginmusicfile_1);
 
-        //BarChart barChart = findViewById(R.id.barchart);
-        getData();
+        // Loop the music continuously
+        mediaPlayer.setLooping(true);
+
+        // Start playing the music
+        mediaPlayer.start();
+
+        // Set up the barchartscore chart
+        barChartscore.getDescription().setEnabled(false);
+        barChartscore.setDrawGridBackground(false);
+        barChartscore.setDrawBarShadow(false);
+        barChartscore.setDrawValueAboveBar(true);
+        barChartscore.setPinchZoom(false);
+        barChartscore.setDrawGridBackground(false);
+        barChartscore.setTouchEnabled(false);
+        barChartscore.setDoubleTapToZoomEnabled(false);
+
+        // Create a data set with a single bar
+        ArrayList<BarEntry> entries = new ArrayList<>();
+        entries.add(new BarEntry(0f, 0f));
+        entries.add(new BarEntry(0f, 10f));
+        entries.add(new BarEntry(1f, 30f));
+        entries.add(new BarEntry(2f, 50f));
+        entries.add(new BarEntry(3f, 80f));
+        entries.add(new BarEntry(4f, 10f));
+        entries.add(new BarEntry(5f, 60f));
+        entries.add(new BarEntry(6f, 20f));
+        entries.add(new BarEntry(7f, 100f));
+        BarDataSet dataSet = new BarDataSet(entries, "Score");
+
+        // Customize the data set
+        dataSet.setColor(Color.BLUE);
+        dataSet.setValueTextColor(Color.BLACK);
+        dataSet.setValueTextSize(16f);
+
+        // Create a data object with the data set
+        BarData data = new BarData(dataSet);
+        data.setBarWidth(0.9f);
+
+        // Set the data object to the chart
+        barChartscore.setData(data);
 
 
-        BarDataSet barDataSet = new BarDataSet(barArraylist,"Cambo Tutorial");
-        BarData barData = new BarData(barDataSet);
-        barChart.setData(barData);
-        //color bar data set
-        barDataSet.setColors(ColorTemplate.COLORFUL_COLORS);
-        //text color
-        barDataSet.setValueTextColor(Color.BLACK);
-        //settting text size
-        barDataSet.setValueTextSize(16f);
-        barChart.getDescription().setEnabled(true);
+        // Set up the barchartreacttime chart
+        barchartreacttime.getDescription().setEnabled(false);
+        barchartreacttime.setDrawGridBackground(false);
+        barchartreacttime.setDrawBarShadow(false);
+        barchartreacttime.setDrawValueAboveBar(true);
+        barchartreacttime.setPinchZoom(false);
+        barchartreacttime.setDrawGridBackground(false);
+        barchartreacttime.setTouchEnabled(false);
+        barchartreacttime.setDoubleTapToZoomEnabled(false);
+
+        // Create a data set with a single bar
+        ArrayList<BarEntry> entries2 = new ArrayList<>();
+        entries2.add(new BarEntry(0f, 10f));
+        entries2.add(new BarEntry(1f, 30f));
+        entries2.add(new BarEntry(2f, 20f));
+        entries2.add(new BarEntry(3f, 70f));
+
+
+        BarDataSet dataSet2 = new BarDataSet(entries2, "Reacttime / Seconds");
+
+        // Customize the data set
+        dataSet2.setColor(Color.BLUE);
+        dataSet2.setValueTextColor(Color.BLACK);
+        dataSet2.setValueTextSize(16f);
+
+        // Create a data object with the data set
+        BarData data2 = new BarData(dataSet2);
+        data2.setBarWidth(0.9f);
+
+        // Set the data object to the chart
+        barchartreacttime.setData(data2);
+
+
 
 
 
@@ -90,6 +154,13 @@ public class GraphActivity extends AppCompat {
             @Override
             public void onClick(View view) {
                 // back
+                if(mediaPlayer.isPlaying()) {
+                    mediaPlayer.stop();
+                }
+                if (mediaPlayer != null) {
+                    mediaPlayer.stop();
+                    mediaPlayer.release();
+                }
                 Intent intentMain = new Intent(GraphActivity.this, MainActivity.class);
                 startActivity(intentMain);
             }

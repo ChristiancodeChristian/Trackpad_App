@@ -5,7 +5,7 @@
     android:layout_height="match_parent">
 
     <com.github.mikephil.charting.charts.BarChart
-        android:id="@+id/barChart"
+        android:id="@+id/barChartscore"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
