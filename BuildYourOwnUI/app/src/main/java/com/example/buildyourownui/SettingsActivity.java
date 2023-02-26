@@ -34,7 +34,7 @@ public class SettingsActivity extends AppCompat {
     private ToggleButton btnSounds;
     private Switch switchEasyHard;
 
-    public static int switchhardeasy;
+    public static boolean switch_hardeasy;
     public static boolean StateOfBackgroundMusic;
     public static boolean StateOfSound;
 
@@ -178,12 +178,16 @@ public class SettingsActivity extends AppCompat {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
-                    switchhardeasy = 1;
+                    switch_hardeasy = true;
+                    ScoreActivity.difficulty_score = "Easymode";
                 } else {
-                    switchhardeasy = 2;
+                    switch_hardeasy = false;
+                    ScoreActivity.difficulty_score = "Hardmode";
                 }
             }
         });
+
+
 
         /** Go to Main Menu */
         btnBack.setOnClickListener(new View.OnClickListener() {
