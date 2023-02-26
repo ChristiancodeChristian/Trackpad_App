@@ -35,7 +35,10 @@ public class GameActivity extends AppCompat {
     private int activeButtonIndex = -1;
     private int mCounter = 0;
 
+    private int speed;
+
     private MediaPlayer mediaPlayer;
+    private MediaPlayer mediaPlayerpunch;
 
     TextView TextViewtime;
     long startTime = 0L;
@@ -95,6 +98,12 @@ public class GameActivity extends AppCompat {
         // Start playing the music
         mediaPlayer.start();
 
+        // Load the music file from the app's resources
+        mediaPlayerpunch = MediaPlayer.create(this, R.raw.punch);
+
+        // Loop the music continuously
+        mediaPlayerpunch.setLooping(false);
+
         startTime = SystemClock.uptimeMillis();
         handler.postDelayed(updateTimer, 0);
 
@@ -116,18 +125,33 @@ public class GameActivity extends AppCompat {
         Mole1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (mediaPlayerpunch.isPlaying()) {
+                    mediaPlayerpunch.stop();
+                }
+
+                // Start playing the music
+                mediaPlayerpunch.start();
                 // increase Counter by 1
                 incrementCounter();
+
                 // Change button's background color to green
                 Mole1.setBackgroundColor(Color.GREEN);
                 // Delayed color change back to gray after 1 second
                 mHandler.postDelayed(mRunnable, 1000);
+
                 deactivateAllButtons();
             }
         });
         Mole2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (mediaPlayerpunch.isPlaying()) {
+                    mediaPlayerpunch.stop();
+                }
+
+                // Start playing the music
+                mediaPlayerpunch.start();
+
                 // increase Counter by 1
                 incrementCounter();
                 // Change button's background color to green
@@ -140,6 +164,13 @@ public class GameActivity extends AppCompat {
         Mole3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (mediaPlayerpunch.isPlaying()) {
+                    mediaPlayerpunch.stop();
+                }
+
+                // Start playing the music
+                mediaPlayerpunch.start();
+
                 // increase Counter by 1
                 incrementCounter();
                 // Change button's background color to green
@@ -152,6 +183,13 @@ public class GameActivity extends AppCompat {
         Mole4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (mediaPlayerpunch.isPlaying()) {
+                    mediaPlayerpunch.stop();
+                }
+
+                // Start playing the music
+                mediaPlayerpunch.start();
+
                 // increase Counter by 1
                 incrementCounter();
                 // Change button's background color to green
@@ -164,6 +202,13 @@ public class GameActivity extends AppCompat {
         Mole5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (mediaPlayerpunch.isPlaying()) {
+                    mediaPlayerpunch.stop();
+                }
+
+                // Start playing the music
+                mediaPlayerpunch.start();
+
                 // increase Counter by 1
                 incrementCounter();
                 // Change button's background color to green
@@ -176,6 +221,13 @@ public class GameActivity extends AppCompat {
         Mole6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (mediaPlayerpunch.isPlaying()) {
+                    mediaPlayerpunch.stop();
+                }
+
+                // Start playing the music
+                mediaPlayerpunch.start();
+
                 // increase Counter by 1
                 incrementCounter();
                 // Change button's background color to green
@@ -188,6 +240,13 @@ public class GameActivity extends AppCompat {
         Mole7.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (mediaPlayerpunch.isPlaying()) {
+                    mediaPlayerpunch.stop();
+                }
+
+                // Start playing the music
+                mediaPlayerpunch.start();
+
                 // increase Counter by 1
                 incrementCounter();
                 // Change button's background color to green
@@ -200,6 +259,13 @@ public class GameActivity extends AppCompat {
         Mole8.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (mediaPlayerpunch.isPlaying()) {
+                    mediaPlayerpunch.stop();
+                }
+
+                // Start playing the music
+                mediaPlayerpunch.start();
+
                 // increase Counter by 1
                 incrementCounter();
                 // Change button's background color to green
@@ -212,6 +278,13 @@ public class GameActivity extends AppCompat {
         Mole9.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (mediaPlayerpunch.isPlaying()) {
+                    mediaPlayerpunch.stop();
+                }
+
+                // Start playing the music
+                mediaPlayerpunch.start();
+
                 // increase Counter by 1
                 incrementCounter();
                 // Change button's background color to green
@@ -227,6 +300,13 @@ public class GameActivity extends AppCompat {
             @Override
             public void onClick(View view) {
                 // back
+                if (mediaPlayerpunch.isPlaying()) {
+                    mediaPlayerpunch.stop();
+                }
+
+                if(mediaPlayer.isPlaying()) {
+                    mediaPlayer.stop();
+                }
                 Intent intentMain = new Intent(GameActivity.this, MainActivity.class);
                 startActivity(intentMain);
             }
@@ -237,12 +317,14 @@ public class GameActivity extends AppCompat {
         mCounter = mCounter +1;
         //mCounterText.setText("Counter: " + mCounter);
         scorecounter.setText(String.valueOf(mCounter));
-        if (SettingsActivity.switchhardeasy == 1){
+        if (SettingsActivity.switch_hardeasy = true){
             difficulty = easy;
+            speed = 3000;
         }
         else
 
             difficulty = hard;
+            speed = 1000;
 
         if (mCounter >= difficulty) {
             // Launch a new activity when counter reaches 25
@@ -250,6 +332,23 @@ public class GameActivity extends AppCompat {
             ScoreActivity.time = "" + mins + ":"
                     + String.format("%02d", secs) + ":"
                     + String.format("%03d", milliseconds);
+
+            if (mediaPlayerpunch.isPlaying()) {
+                mediaPlayerpunch.stop();
+            }
+
+            if(mediaPlayer.isPlaying()) {
+                mediaPlayer.stop();
+            }
+
+            if (mediaPlayerpunch != null) {
+                mediaPlayerpunch.stop();
+                mediaPlayerpunch.release();
+            }
+            if (mediaPlayer != null) {
+                mediaPlayer.stop();
+                mediaPlayer.release();
+            }
             Intent intentFin = new Intent(GameActivity.this, ScoreActivity.class);
             startActivity(intentFin);
         }
@@ -285,7 +384,8 @@ public class GameActivity extends AppCompat {
                 activateButton(buttonIndex);
                 scheduleRandomButtonActivation();
             }
-        }, random.nextInt(1000) + 1);
+        },
+                random.nextInt(1000) + 1);
     }
 
     public void onClick(View view) {
@@ -304,10 +404,8 @@ public class GameActivity extends AppCompat {
         // Remove any pending delayed color changes when activity is destroyed
         mHandler.removeCallbacks(mRunnable);
         // Stop and release the MediaPlayer when the activity is destroyed
-        if (mediaPlayer != null) {
-            mediaPlayer.stop();
-            mediaPlayer.release();
-        }
+
+
     }
 
     public Runnable updateTimer = new Runnable() {

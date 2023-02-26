@@ -24,6 +24,8 @@ public class ScoreActivity extends AppCompat {
     private ArrayList<String> listData;
     private ListView listViewEvents;
     public static String time;
+
+    public static String difficulty_score;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -71,18 +73,18 @@ public class ScoreActivity extends AppCompat {
         //Test of list:
         String user = usernameManager.getUser();
         //String time = "5s";
-        String score = "1243";
+        //String score = "1243";
 
         // put new item to score list
-        addListItem(user, time, score);
+        addListItem(user, difficulty_score,time );
 
 
 
     }
 
-    public void addListItem(String user, String time, String score){
+    public void addListItem(String user, String difficulty_score, String time){
         //combine timestamp and parameter
-        listData.add(String.format("%s %s %s", user, time, score));
+        listData.add(String.format("%s %s %s", user, difficulty_score, time));
 
         //notify the adapter that the underlying data has changed
         listAdapterEvents.notifyDataSetChanged();
