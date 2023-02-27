@@ -1,7 +1,7 @@
 /* Simple example code for Force Sensitive Resistor (FSR) with Arduino. More info: https://www.makerguides.com */
 
 // Define FSR pin:
-#define fsrpin1 A0
+#define fsrpin1 13
 
 
 //Define variable to store sensor readings:

@@ -11,11 +11,11 @@
 
     <pl.droidsonroids.gif.GifImageView
         android:id="@+id/gifImageView"
-        android:layout_width="600dp"
+        android:layout_width="800dp"
         android:layout_height="550dp"
-        android:layout_marginBottom="320dp"
+        android:layout_marginBottom="100dp"
         android:src="@drawable/molewithhammer"
-        app:layout_constraintBottom_toBottomOf="@+id/linearLayout"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -26,89 +26,97 @@
         android:layout_height="70dp"
         android:backgroundTint="#00FFFFFF"
         android:scaleType="centerInside"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/setingsicon2" />
 
     <ImageView
         android:id="@+id/imageView_soil"
         android:layout_width="1000dp"
         android:layout_height="500dp"
-        android:layout_marginTop="300dp"
         android:background="#00451F04"
-        app:layout_constraintBottom_toBottomOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/linearLayout"
-        app:srcCompat="@drawable/soil" />
+        app:srcCompat="@drawable/soil"
+        tools:layout_editor_absoluteY="181dp" />
 
-    <LinearLayout
-        android:id="@+id/linearLayout"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="332dp"
-            android:fontFamily="sans-serif-smallcaps"
-            android:paddingTop="65dp"
-            android:paddingBottom="50dp"
-            android:rotationX="-13"
-            android:rotationY="33"
-            android:text="@string/mainMenu"
-            android:textAlignment="center"
-            android:textAllCaps="false"
-            android:textSize="80sp"
-            android:textStyle="bold|italic" />
-
-        <Button
-            android:id="@+id/btnStartMain"
-            android:layout_width="220dp"
-            android:layout_height="80dp"
-            android:layout_gravity="center"
-            android:layout_marginBottom="35dp"
-            android:foregroundGravity="center_vertical"
-            android:gravity="center"
-            android:text="Start"
-            android:textSize="20sp" />
+        tools:layout_editor_absoluteY="687dp">
 
         <Button
             android:id="@+id/btnGraph"
             android:layout_width="170dp"
             android:layout_height="65dp"
             android:layout_gravity="center"
-            android:layout_marginBottom="15dp"
+            android:layout_marginBottom="32dp"
             android:foregroundGravity="center_vertical"
             android:gravity="center"
             android:text="@string/mainGraph"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/btnExit"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/btnStartMain"
+            android:layout_width="220dp"
+            android:layout_height="80dp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="32dp"
+            android:foregroundGravity="center_vertical"
+            android:gravity="center"
+            android:text="Start"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toTopOf="@+id/btnGraph"
+            app:layout_constraintEnd_toStartOf="@+id/btnScore1"
+            app:layout_constraintStart_toStartOf="parent" />
 
         <Button
             android:id="@+id/btnScore1"
             android:layout_width="170dp"
             android:layout_height="65dp"
             android:layout_gravity="center"
-            android:layout_marginBottom="15dp"
+            android:layout_marginEnd="108dp"
+            android:layout_marginBottom="32dp"
             android:foregroundGravity="center_vertical"
             android:gravity="center"
             android:text="@string/mainScore"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            app:layout_constraintBottom_toTopOf="@+id/btnExit"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <TextView
+            android:layout_width="212dp"
+            android:layout_height="201dp"
+            android:fontFamily="sans-serif-smallcaps"
+            android:paddingTop="20dp"
+            android:paddingBottom="50dp"
+            android:rotationX="-13"
+            android:rotationY="33"
+            android:text="@string/mainMenu"
+            android:textAlignment="center"
+            android:textAllCaps="false"
+            android:textSize="60sp"
+            android:textStyle="bold|italic"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <Button
             android:id="@+id/btnExit"
             android:layout_width="170dp"
             android:layout_height="65dp"
             android:layout_gravity="center"
-            android:layout_marginBottom="15dp"
+            android:layout_marginEnd="108dp"
+            android:layout_marginBottom="32dp"
             android:foregroundGravity="center_vertical"
             android:gravity="center"
             android:text="@string/mainExit"
-            android:textSize="20sp" />
-
-    </LinearLayout>
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
