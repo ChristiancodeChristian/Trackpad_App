@@ -1,5 +1,6 @@
 package com.example.buildyourownui;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -41,6 +42,8 @@ public class MQTTActivity extends AppCompatActivity implements MqttCallbackExten
         } catch (MqttException e) {
             e.printStackTrace();
         }
+        launchMainActivity();
+
     }
 
     @Override
@@ -61,5 +64,11 @@ public class MQTTActivity extends AppCompatActivity implements MqttCallbackExten
     @Override
     public void connectComplete(boolean reconnect, String serverURI) {
         // handle connection complete
+    }
+
+
+    private void launchMainActivity(){
+        Intent intent = new Intent(MQTTActivity.this, MainActivity.class);
+        startActivity(intent);
     }
 }
