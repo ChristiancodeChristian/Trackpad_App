@@ -69,14 +69,14 @@ public class GraphActivity extends AppCompat {
         mediaPlayer.start();
 
         // Set up the barchartscore chart
-        barChartscore.getDescription().setEnabled(false);
-        barChartscore.setDrawGridBackground(false);
-        barChartscore.setDrawBarShadow(false);
+        barChartscore.getDescription().setEnabled(true);
+        barChartscore.setDrawGridBackground(true);
+        barChartscore.setDrawBarShadow(true);
         barChartscore.setDrawValueAboveBar(true);
-        barChartscore.setPinchZoom(false);
-        barChartscore.setDrawGridBackground(false);
-        barChartscore.setTouchEnabled(false);
-        barChartscore.setDoubleTapToZoomEnabled(false);
+        barChartscore.setPinchZoom(true);
+        barChartscore.setDrawGridBackground(true);
+        barChartscore.setTouchEnabled(true);
+        barChartscore.setDoubleTapToZoomEnabled(true);
 
         // Create a data set with a single bar
         ArrayList<BarEntry> entries = new ArrayList<>();
@@ -89,6 +89,12 @@ public class GraphActivity extends AppCompat {
         entries.add(new BarEntry(5f, 60f));
         entries.add(new BarEntry(6f, 20f));
         entries.add(new BarEntry(7f, 100f));
+        entries.add(new BarEntry(8f, 80f));
+        entries.add(new BarEntry(9f, 10f));
+        entries.add(new BarEntry(10f, 60f));
+        entries.add(new BarEntry(11f, 20f));
+        entries.add(new BarEntry(12f, 100f));
+
         BarDataSet dataSet = new BarDataSet(entries, "Score");
 
         // Customize the data set
