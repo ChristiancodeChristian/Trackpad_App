@@ -19,6 +19,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class ScoreActivity extends AppCompat {
+    public static String difficulty_score;
     // initializing variables
     private Button btnScore2Graph;
 

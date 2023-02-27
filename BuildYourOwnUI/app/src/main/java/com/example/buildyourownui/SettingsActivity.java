@@ -251,13 +251,13 @@ public class SettingsActivity extends AppCompat {
         SharedPreferences.Editor editor = BTNsharedPreferences.edit();
         editor.clear();
         editor.putBoolean("switchEasyHard", switchEasyHard.isChecked());
-<<<<<<< HEAD
+
         editor.putString("StringEasyHard", ScoreActivity.difficulty_score);
        // editor.putBoolean("btnBackgroundMusic", btnBackgroundMusic.isChecked());
-=======
+
         editor.putString("StringEasyHard", difficulty_score);
         editor.putBoolean("btnBackgroundMusic", btnBackgroundMusic.isChecked());
->>>>>>> a41d8e72b69333bf75ed4d5e9e236f7c82caddbc
+
         editor.putBoolean("btnSounds", btnSounds.isChecked());
         editor.apply();
 
