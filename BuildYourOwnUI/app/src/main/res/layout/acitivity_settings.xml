@@ -155,6 +155,7 @@
                     android:checked="false"
                     android:scaleX="2"
                     android:scaleY="2"
+                    android:translationX="-30dp"
                     android:visibility="visible"
                     tools:checked="false"
                     tools:visibility="visible" />
@@ -184,6 +185,7 @@
                     android:layout_weight="1"
                     android:scaleX="2"
                     android:scaleY="2"
+                    android:translationX="-30dp"
                     android:visibility="visible" />
 
             </TableRow>

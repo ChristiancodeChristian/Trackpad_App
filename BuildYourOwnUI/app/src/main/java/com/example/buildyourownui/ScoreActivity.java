@@ -1,5 +1,7 @@
 package com.example.buildyourownui;
 
+import static com.example.buildyourownui.GameActivity.loadScore;
+
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -37,6 +39,7 @@ public class ScoreActivity extends AppCompat {
         btnBackScore = findViewById(R.id.btnscore2home);
         // Java class
         UsernameManager usernameManager = new UsernameManager(this);
+        SettingsManager settingsManager = new SettingsManager(this);
 
 
 
@@ -71,12 +74,15 @@ public class ScoreActivity extends AppCompat {
         loadContent();
 
         //Test of list:
-        String user = usernameManager.getUser();
-        //String time = "5s";
-        //String score = "1243";
 
-        // put new item to score list
-        addListItem(user, difficulty_score,time );
+        if (loadScore==true){
+            String user = usernameManager.getUser();
+            String difficulty = settingsManager.getDifficultyMode();
+
+            // put new item to score list
+            addListItem(user, difficulty, time );
+            loadScore=false;
+        }
 
 
 
