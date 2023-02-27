@@ -15,7 +15,7 @@ int iStripe;                      //variable which stripe
 String whichColor[3]={"dark", "dark", "dark"};               //define color of LEDs
 String allDark[3]={"dark", "dark", "dark"};               //define color of LEDs
 
-int fsrButtonsPin[9] = {A4, A5, A6, A7, A8, A9, A10, A11, A12};      //define Pin for each pressure Button
+int fsrButtonsPin[9] = {13, 12, 14, 27, 26, 25, 33,32 , 35};      //define Pin for each pressure Button
 int fsrButtonsReading[9];         //define variable to store sensor readings
 
 int lvlspeed = 1000;

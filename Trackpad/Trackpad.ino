@@ -12,8 +12,8 @@ int numLed = 9;                //number of Leds per Stripe
 int randomLED;
 
 //####  FSR Button ####
-int fsrButtonsPin[6] = {13, 12, 14, 27, 26 ,25};      //define Pin for each pressure Button
-int fsrButtonsReading[6];           //define variable to store sensor readings
+int fsrButtonsPin[9] = {13, 12, 14, 27, 26 ,25,33,32,35};      //define Pin for each pressure Button
+int fsrButtonsReading[9];           //define variable to store sensor readings
 //int fsrButtonsPin[1] = {A0};     //define Pin for each pressure Button
 //int fsrButtonsReading[1];         //define variable to store sensor readings
 
