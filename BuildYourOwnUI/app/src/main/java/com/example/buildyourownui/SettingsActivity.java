@@ -5,7 +5,9 @@ import static com.example.buildyourownui.MainActivity.mediaPlayer;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.widget.Button;
@@ -35,8 +37,10 @@ public class SettingsActivity extends AppCompat {
     private Switch switchEasyHard;
 
     public static boolean switch_hardeasy;
-    public static boolean StateOfBackgroundMusic;
-    public static boolean StateOfSound;
+
+    private SharedPreferences BTNsharedPreferences;
+
+    public static boolean StateOfBackgroundMusic, StateOfSounds, StateOfEasyHard;
 
 
     @Override
@@ -60,6 +64,14 @@ public class SettingsActivity extends AppCompat {
         // Java class
         LanguageManager lang = new LanguageManager( this);
         UsernameManager usernameManager = new UsernameManager(this);
+        //SettingsManager settingsManager = new SettingsManager(this);
+
+        /** Shared Preferences of Button State **/
+        BTNsharedPreferences = getSharedPreferences("btn", Context.MODE_PRIVATE);
+        updateBTN();
+/*        switchEasyHard.setChecked(settingsManager.updateEasyHard());
+        btnBackgroundMusic.setChecked(settingsManager.updateBTNBackgroundMusic());
+        btnSounds.setChecked(settingsManager.updateBTNSounds());*/
 
 
 
@@ -85,6 +97,8 @@ public class SettingsActivity extends AppCompat {
         btnBackgroundMusic.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                setBTNpref();
+                //settingsManager.setBTNpref(StateOfEasyHard, StateOfSounds, StateOfBackgroundMusic);       //set Button Preferences
                 if (StateOfBackgroundMusic == false){
                     mediaPlayer.pause();
                 }
@@ -95,11 +109,18 @@ public class SettingsActivity extends AppCompat {
         });
 
         /** Sounds */
-        StateOfSound = btnSounds.isChecked();
+        StateOfSounds = btnSounds.isChecked();
         btnSounds.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                
+                setBTNpref();
+                //settingsManager.setBTNpref(StateOfEasyHard, StateOfSounds, StateOfBackgroundMusic);       //set Button Preferences
+                if (btnSounds.isChecked() == false){
+
+                }
+                else {
+                    mediaPlayer.start();
+                }
             }
         });
 
@@ -174,16 +195,22 @@ public class SettingsActivity extends AppCompat {
                 break;
         }
 
+        /** Easy/Hard Mode */
+        StateOfEasyHard = switchEasyHard.isChecked();
         switchEasyHard.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
+                    // Level hard
                     switch_hardeasy = true;
-                    ScoreActivity.difficulty_score = "Easymode";
-                } else {
-                    switch_hardeasy = false;
                     ScoreActivity.difficulty_score = "Hardmode";
+                } else {
+                    // Level easy
+                    switch_hardeasy = false;
+                    ScoreActivity.difficulty_score = "Easymode";
                 }
+                setBTNpref();
+                // settingsManager.setBTNpref(StateOfEasyHard, StateOfSounds, StateOfBackgroundMusic);       //set Button Preferences
             }
         });
 
@@ -199,6 +226,42 @@ public class SettingsActivity extends AppCompat {
             }
         });
 
+    }
+
+    private void setBTNpref() {
+        //SharedPreferences BTNsharedPreferences = getSharedPreferences("btn", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = BTNsharedPreferences.edit();
+        editor.clear();
+        editor.putBoolean("switchEasyHard", switchEasyHard.isChecked());
+        editor.putString("StringEasyHard", ScoreActivity.difficulty_score);
+        editor.putBoolean("btnBackgroundMusic", btnBackgroundMusic.isChecked());
+        editor.putBoolean("btnSounds", btnSounds.isChecked());
+        editor.apply();
+
+    }
+
+    private void updateBTN(){
+        switchEasyHard.setChecked(BTNsharedPreferences.getBoolean("switchEasyHard", false));
+        btnBackgroundMusic.setChecked(BTNsharedPreferences.getBoolean("btnBackgroundMusic", false));
+        btnSounds.setChecked(BTNsharedPreferences.getBoolean("btnSounds", false));
+    }
+
+    public boolean updateBTNBackgroundMusic(){
+        boolean testBackgroundMusic = BTNsharedPreferences.getBoolean("btnBackgroundMusic", false);
+        return testBackgroundMusic;
+    }
+    public boolean updateBTNSounds(){
+        boolean testSounds = BTNsharedPreferences.getBoolean("btnSounds", false);
+        return testSounds;
+    }
+    public boolean updateEasyHard(){
+        boolean testEasyHard = BTNsharedPreferences.getBoolean("switchEasyHard", false);
+        return testEasyHard;
+    }
+
+
+    public String getDifficultyMode(){
+        return BTNsharedPreferences.getString("StringEasyHard", null);
     }
 
 }

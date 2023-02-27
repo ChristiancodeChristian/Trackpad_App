@@ -15,13 +15,28 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/listViewEvents" />
 
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/listViewEvents">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+    </ScrollView>
+
     <ListView
         android:id="@+id/listViewEvents"
         android:layout_width="match_parent"
-        android:layout_height="580dp"
+        android:layout_height="wrap_content"
         android:entries="@android:array/imProtocols"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
-        tools:layout_editor_absoluteX="0dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <ImageButton
         android:id="@+id/btnscore2home"
@@ -32,20 +47,27 @@
         android:padding="-0dp"
         android:scaleType="centerInside"
         android:src="@drawable/homeimage"
+        app:layout_constraintBottom_toTopOf="@+id/listViewEvents"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView"
         app:layout_constraintTop_toTopOf="parent"
         tools:srcCompat="@drawable/homeimage" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="221dp"
-        android:layout_height="71dp"
+        android:layout_height="70dp"
+        android:layout_marginEnd="120dp"
         android:fontFamily="sans-serif-smallcaps"
         android:paddingTop="10dp"
         android:text="@string/mainScore"
         android:textAlignment="center"
         android:textAllCaps="false"
         android:textSize="50sp"
-        android:textStyle="bold|italic" />
+        android:textStyle="bold|italic"
+        app:layout_constraintBottom_toTopOf="@+id/listViewEvents"
+        app:layout_constraintEnd_toStartOf="@+id/btnscore2home"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

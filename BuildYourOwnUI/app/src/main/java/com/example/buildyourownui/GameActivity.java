@@ -40,6 +40,8 @@ public class GameActivity extends AppCompat {
     private MediaPlayer mediaPlayer;
     private MediaPlayer mediaPlayerpunch;
 
+    public static boolean loadScore;
+
     TextView TextViewtime;
     long startTime = 0L;
     long timeInMilliseconds = 0L;
@@ -50,8 +52,8 @@ public class GameActivity extends AppCompat {
     int mins = 0;
     int milliseconds = 0;
     int difficulty;
-    int easy = 25;
-    int hard = 40;
+    int easy = 5;
+    int hard = 8;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -318,12 +320,12 @@ public class GameActivity extends AppCompat {
         //mCounterText.setText("Counter: " + mCounter);
         scorecounter.setText(String.valueOf(mCounter));
         if (SettingsActivity.switch_hardeasy = true){
-            difficulty = easy;
+            difficulty = hard;
             speed = 3000;
         }
         else
 
-            difficulty = hard;
+            difficulty = easy;
             speed = 1000;
 
         if (mCounter >= difficulty) {
@@ -349,6 +351,7 @@ public class GameActivity extends AppCompat {
                 mediaPlayer.stop();
                 mediaPlayer.release();
             }
+            loadScore=true;
             Intent intentFin = new Intent(GameActivity.this, ScoreActivity.class);
             startActivity(intentFin);
         }
