@@ -16,6 +16,8 @@ import com.github.mikephil.charting.utils.ColorTemplate;*/
 
 
 
+import static com.example.buildyourownui.SettingsActivity.stateOfSounds;
+
 import android.content.Intent;
 import android.graphics.Color;
 import android.media.MediaPlayer;
@@ -64,9 +66,17 @@ public class GraphActivity extends AppCompat {
 
         // Loop the music continuously
         mediaPlayer.setLooping(true);
-
+        if (stateOfSounds){
+            // Start playing the music
+            mediaPlayer.start();
+        }
+        if(!stateOfSounds){
+            if(mediaPlayer.isPlaying()){
+                mediaPlayer.stop();
+            }
+        }
         // Start playing the music
-        mediaPlayer.start();
+
 
         // Set up the barchartscore chart
         barChartscore.getDescription().setEnabled(true);

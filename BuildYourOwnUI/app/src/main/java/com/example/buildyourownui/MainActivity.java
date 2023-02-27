@@ -1,7 +1,9 @@
 package com.example.buildyourownui;
 
+import static com.example.buildyourownui.GameActivity.mediaPlayergame;
 import static com.example.buildyourownui.SelectActivity.gameModi;
 import static com.example.buildyourownui.SettingsActivity.StateOfBackgroundMusic;
+import static com.example.buildyourownui.SettingsActivity.stateOfSounds;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -18,7 +20,7 @@ public class MainActivity extends AppCompat {
     private ImageButton btnSettings;
 
 
-    public static MediaPlayer mediaPlayer;
+    public static MediaPlayer mediaPlayermain;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,13 +35,26 @@ public class MainActivity extends AppCompat {
 
 
         // Load the music file from the app's resources
-        mediaPlayer = MediaPlayer.create(this, R.raw.loginmusicfile_1);
+        mediaPlayermain = MediaPlayer.create(this, R.raw.loginmusicfile_1);
 
         // Loop the music continuously
-        mediaPlayer.setLooping(true);
+        mediaPlayermain.setLooping(true);
 
-        // Start playing the music
-            mediaPlayer.start();
+
+        if (!stateOfSounds){
+            // Start playing the music
+            mediaPlayermain.start();
+        }
+        if(stateOfSounds){
+            if(mediaPlayermain.isPlaying()){
+                mediaPlayermain.stop();
+            }
+            if (mediaPlayermain != null) {
+                mediaPlayermain.stop();
+                mediaPlayermain.release();
+            }
+        }
+
 
 
 
@@ -50,8 +65,14 @@ public class MainActivity extends AppCompat {
         btnSettings.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 Intent intentSettings = new Intent(MainActivity.this, SettingsActivity.class);
                 startActivity(intentSettings);
+
+                if (mediaPlayermain != null) {
+                    mediaPlayermain.stop();
+                    mediaPlayermain.release();
+                }
             }
         });
 
@@ -85,6 +106,13 @@ public class MainActivity extends AppCompat {
         btnScore1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if(mediaPlayermain.isPlaying()){
+                    mediaPlayermain.stop();
+                }
+                if (mediaPlayermain != null) {
+                    mediaPlayermain.stop();
+                    mediaPlayermain.release();
+                }
                 Intent intentScore = new Intent(MainActivity.this, ScoreActivity.class);
                 startActivity(intentScore);
             }
@@ -107,9 +135,13 @@ public class MainActivity extends AppCompat {
         super.onDestroy();
 
         // Stop and release the MediaPlayer when the activity is destroyed
-        if (mediaPlayer != null) {
-            mediaPlayer.stop();
-            mediaPlayer.release();
+        if(mediaPlayermain.isPlaying()){
+            mediaPlayermain.stop();
+        }
+
+        if (mediaPlayermain != null) {
+            mediaPlayermain.stop();
+            mediaPlayermain.release();
         }
     }
 

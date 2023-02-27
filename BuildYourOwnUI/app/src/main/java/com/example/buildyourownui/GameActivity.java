@@ -1,5 +1,7 @@
 package com.example.buildyourownui;
 
+import static com.example.buildyourownui.SettingsActivity.stateOfSounds;
+
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Handler;
@@ -37,8 +39,8 @@ public class GameActivity extends AppCompat {
 
     private int speed;
 
-    private MediaPlayer mediaPlayer;
-    private MediaPlayer mediaPlayerpunch;
+    public static MediaPlayer mediaPlayergame;
+    public static MediaPlayer mediaPlayerpunch;
 
     public static boolean loadScore;
 
@@ -92,13 +94,22 @@ public class GameActivity extends AppCompat {
         };
 
         // Load the music file from the app's resources
-        mediaPlayer = MediaPlayer.create(this, R.raw.gamemusicfile_1);
+        mediaPlayergame = MediaPlayer.create(this, R.raw.gamemusicfile_1);
 
         // Loop the music continuously
-        mediaPlayer.setLooping(true);
+        mediaPlayergame.setLooping(true);
 
         // Start playing the music
-        mediaPlayer.start();
+        if (!stateOfSounds){
+            // Start playing the music
+            mediaPlayergame.start();
+        }
+        if(stateOfSounds){
+            if(mediaPlayergame.isPlaying()){
+                mediaPlayergame.stop();
+            }
+        }
+
 
         // Load the music file from the app's resources
         mediaPlayerpunch = MediaPlayer.create(this, R.raw.punch);
@@ -130,9 +141,12 @@ public class GameActivity extends AppCompat {
                 if (mediaPlayerpunch.isPlaying()) {
                     mediaPlayerpunch.stop();
                 }
+                if(!stateOfSounds){
+                    // Start playing the music
+                    mediaPlayerpunch.start();
+                }
 
-                // Start playing the music
-                mediaPlayerpunch.start();
+
                 // increase Counter by 1
                 incrementCounter();
 
@@ -151,8 +165,10 @@ public class GameActivity extends AppCompat {
                     mediaPlayerpunch.stop();
                 }
 
-                // Start playing the music
-                mediaPlayerpunch.start();
+                if(!stateOfSounds){
+                    // Start playing the music
+                    mediaPlayerpunch.start();
+                }
 
                 // increase Counter by 1
                 incrementCounter();
@@ -170,8 +186,10 @@ public class GameActivity extends AppCompat {
                     mediaPlayerpunch.stop();
                 }
 
-                // Start playing the music
-                mediaPlayerpunch.start();
+                if(!stateOfSounds){
+                    // Start playing the music
+                    mediaPlayerpunch.start();
+                }
 
                 // increase Counter by 1
                 incrementCounter();
@@ -189,8 +207,10 @@ public class GameActivity extends AppCompat {
                     mediaPlayerpunch.stop();
                 }
 
-                // Start playing the music
-                mediaPlayerpunch.start();
+                if(!stateOfSounds){
+                    // Start playing the music
+                    mediaPlayerpunch.start();
+                }
 
                 // increase Counter by 1
                 incrementCounter();
@@ -208,8 +228,10 @@ public class GameActivity extends AppCompat {
                     mediaPlayerpunch.stop();
                 }
 
-                // Start playing the music
-                mediaPlayerpunch.start();
+                if(!stateOfSounds){
+                    // Start playing the music
+                    mediaPlayerpunch.start();
+                }
 
                 // increase Counter by 1
                 incrementCounter();
@@ -227,8 +249,10 @@ public class GameActivity extends AppCompat {
                     mediaPlayerpunch.stop();
                 }
 
-                // Start playing the music
-                mediaPlayerpunch.start();
+                if(!stateOfSounds){
+                    // Start playing the music
+                    mediaPlayerpunch.start();
+                }
 
                 // increase Counter by 1
                 incrementCounter();
@@ -246,8 +270,10 @@ public class GameActivity extends AppCompat {
                     mediaPlayerpunch.stop();
                 }
 
-                // Start playing the music
-                mediaPlayerpunch.start();
+                if(!stateOfSounds){
+                    // Start playing the music
+                    mediaPlayerpunch.start();
+                }
 
                 // increase Counter by 1
                 incrementCounter();
@@ -265,8 +291,10 @@ public class GameActivity extends AppCompat {
                     mediaPlayerpunch.stop();
                 }
 
-                // Start playing the music
-                mediaPlayerpunch.start();
+                if(!stateOfSounds){
+                    // Start playing the music
+                    mediaPlayerpunch.start();
+                }
 
                 // increase Counter by 1
                 incrementCounter();
@@ -283,9 +311,12 @@ public class GameActivity extends AppCompat {
                 if (mediaPlayerpunch.isPlaying()) {
                     mediaPlayerpunch.stop();
                 }
+                if(!stateOfSounds){
+                    // Start playing the music
+                    mediaPlayerpunch.start();
+                }
 
-                // Start playing the music
-                mediaPlayerpunch.start();
+
 
                 // increase Counter by 1
                 incrementCounter();
@@ -306,8 +337,8 @@ public class GameActivity extends AppCompat {
                     mediaPlayerpunch.stop();
                 }
 
-                if(mediaPlayer.isPlaying()) {
-                    mediaPlayer.stop();
+                if(mediaPlayergame.isPlaying()) {
+                    mediaPlayergame.stop();
                 }
                 Intent intentMain = new Intent(GameActivity.this, MainActivity.class);
                 startActivity(intentMain);
@@ -323,10 +354,10 @@ public class GameActivity extends AppCompat {
             difficulty = hard;
             speed = 3000;
         }
-        else
-
+        else {
             difficulty = easy;
             speed = 1000;
+        }
 
         if (mCounter >= difficulty) {
             // Launch a new activity when counter reaches 25
@@ -339,17 +370,17 @@ public class GameActivity extends AppCompat {
                 mediaPlayerpunch.stop();
             }
 
-            if(mediaPlayer.isPlaying()) {
-                mediaPlayer.stop();
+            if(mediaPlayergame.isPlaying()) {
+                mediaPlayergame.stop();
             }
 
             if (mediaPlayerpunch != null) {
                 mediaPlayerpunch.stop();
                 mediaPlayerpunch.release();
             }
-            if (mediaPlayer != null) {
-                mediaPlayer.stop();
-                mediaPlayer.release();
+            if (mediaPlayergame != null) {
+                mediaPlayergame.stop();
+                mediaPlayergame.release();
             }
             loadScore=true;
             Intent intentFin = new Intent(GameActivity.this, ScoreActivity.class);
@@ -407,7 +438,6 @@ public class GameActivity extends AppCompat {
         // Remove any pending delayed color changes when activity is destroyed
         mHandler.removeCallbacks(mRunnable);
         // Stop and release the MediaPlayer when the activity is destroyed
-
 
     }
 

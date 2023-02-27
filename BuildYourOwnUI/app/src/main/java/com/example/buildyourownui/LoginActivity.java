@@ -1,5 +1,7 @@
 package com.example.buildyourownui;
 
+import static com.example.buildyourownui.SettingsActivity.stateOfSounds;
+
 import android.content.Intent;
 import android.media.MediaPlayer;
 //import android.support.v7.app.AppCompatActivity;
@@ -34,9 +36,16 @@ public class LoginActivity extends AppCompat {
 
         // Loop the music continuously
         mediaPlayer.setLooping(true);
+        if (!stateOfSounds){
+            // Start playing the music
+            mediaPlayer.start();
+        }
+        if(stateOfSounds){
+            if(mediaPlayer.isPlaying()){
+                mediaPlayer.stop();
+            }
+        }
 
-        // Start playing the music
-        mediaPlayer.start();
 
         // Java class
         UsernameManager usernameManager = new UsernameManager(this);

@@ -1,6 +1,8 @@
 package com.example.buildyourownui;
 
-import static com.example.buildyourownui.MainActivity.mediaPlayer;
+import static com.example.buildyourownui.GameActivity.mediaPlayerpunch;
+import static com.example.buildyourownui.MainActivity.mediaPlayermain;
+import static com.example.buildyourownui.MainActivity.mediaPlayermain;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
@@ -36,11 +38,11 @@ public class SettingsActivity extends AppCompat {
     private ToggleButton btnSounds;
     private Switch switchEasyHard;
 
-    public static boolean switch_hardeasy;
+    public static boolean switch_hardeasy,StateOfBackgroundMusic, stateOfSounds, StateOfEasyHard;
 
     private SharedPreferences BTNsharedPreferences;
 
-    public static boolean StateOfBackgroundMusic, StateOfSounds, StateOfEasyHard;
+    //public static boolean StateOfBackgroundMusic, StateOfSounds, StateOfEasyHard;
 
 
     @Override
@@ -56,7 +58,7 @@ public class SettingsActivity extends AppCompat {
         eTUsername = findViewById(R.id.eTUsername);
         btnChangeUserName = findViewById(R.id.btnChangeUserName);
         btnBack = findViewById(R.id.btnBack);
-        btnBackgroundMusic = findViewById(R.id.btnBackgroundMusic);
+
         btnSounds = findViewById(R.id.btnSounds);
         switchEasyHard = findViewById(R.id.switchEasyHard);
 
@@ -92,7 +94,7 @@ public class SettingsActivity extends AppCompat {
             }
         });
 
-        /** Background music */
+/*        *//** Background music *//*
         StateOfBackgroundMusic = btnBackgroundMusic.isChecked();
         btnBackgroundMusic.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -100,27 +102,22 @@ public class SettingsActivity extends AppCompat {
                 setBTNpref();
                 //settingsManager.setBTNpref(StateOfEasyHard, StateOfSounds, StateOfBackgroundMusic);       //set Button Preferences
                 if (StateOfBackgroundMusic == false){
-                    mediaPlayer.pause();
+                    mediaPlayermain.pause();
                 }
                 else {
-                    mediaPlayer.start();
+                    mediaPlayermain.start();
                 }
             }
-        });
+        });*/
 
         /** Sounds */
-        StateOfSounds = btnSounds.isChecked();
+        stateOfSounds = btnSounds.isChecked();
         btnSounds.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 setBTNpref();
                 //settingsManager.setBTNpref(StateOfEasyHard, StateOfSounds, StateOfBackgroundMusic);       //set Button Preferences
-                if (btnSounds.isChecked() == false){
 
-                }
-                else {
-                    mediaPlayer.start();
-                }
             }
         });
 
@@ -228,13 +225,16 @@ public class SettingsActivity extends AppCompat {
 
     }
 
+
+
+
     private void setBTNpref() {
         //SharedPreferences BTNsharedPreferences = getSharedPreferences("btn", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = BTNsharedPreferences.edit();
         editor.clear();
         editor.putBoolean("switchEasyHard", switchEasyHard.isChecked());
         editor.putString("StringEasyHard", ScoreActivity.difficulty_score);
-        editor.putBoolean("btnBackgroundMusic", btnBackgroundMusic.isChecked());
+       // editor.putBoolean("btnBackgroundMusic", btnBackgroundMusic.isChecked());
         editor.putBoolean("btnSounds", btnSounds.isChecked());
         editor.apply();
 
@@ -242,23 +242,9 @@ public class SettingsActivity extends AppCompat {
 
     private void updateBTN(){
         switchEasyHard.setChecked(BTNsharedPreferences.getBoolean("switchEasyHard", false));
-        btnBackgroundMusic.setChecked(BTNsharedPreferences.getBoolean("btnBackgroundMusic", false));
+        //btnBackgroundMusic.setChecked(BTNsharedPreferences.getBoolean("btnBackgroundMusic", false));
         btnSounds.setChecked(BTNsharedPreferences.getBoolean("btnSounds", false));
     }
-
-    public boolean updateBTNBackgroundMusic(){
-        boolean testBackgroundMusic = BTNsharedPreferences.getBoolean("btnBackgroundMusic", false);
-        return testBackgroundMusic;
-    }
-    public boolean updateBTNSounds(){
-        boolean testSounds = BTNsharedPreferences.getBoolean("btnSounds", false);
-        return testSounds;
-    }
-    public boolean updateEasyHard(){
-        boolean testEasyHard = BTNsharedPreferences.getBoolean("switchEasyHard", false);
-        return testEasyHard;
-    }
-
 
     public String getDifficultyMode(){
         return BTNsharedPreferences.getString("StringEasyHard", null);

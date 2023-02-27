@@ -82,36 +82,6 @@
                 android:paddingTop="10dp">
 
                 <TextView
-                    android:id="@+id/lblBackgroundMusic"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="sans-serif-smallcaps"
-                    android:text="@string/Background_music"
-                    android:textAlignment="center"
-                    android:textAllCaps="false"
-                    android:textSize="24sp" />
-
-                <Space
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1" />
-
-                <ToggleButton
-                    android:id="@+id/btnBackgroundMusic"
-                    android:layout_width="50dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="50dp"
-                    android:layout_marginRight="50dp"
-                    android:checked="true"
-                    android:fontFamily="sans-serif-smallcaps" />
-            </TableRow>
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:paddingTop="10dp">
-
-                <TextView
                     android:id="@+id/lblSounds"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
