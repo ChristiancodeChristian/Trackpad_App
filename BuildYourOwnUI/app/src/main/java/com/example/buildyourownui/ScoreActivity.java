@@ -78,7 +78,7 @@ public class ScoreActivity extends AppCompat {
 
         //Test of list:
 
-        //if (loadScore==true){
+        if (loadScore==true){
             String user = usernameManager.getUser();
 
             //boolean dif = settingsManager.updateEasyHard();
@@ -96,7 +96,7 @@ public class ScoreActivity extends AppCompat {
             addListItem(user, difficulty, time );
             loadScore=false;
         }
-   // }
+    }
 
     public void addListItem(String user, String difficulty_score, String time){
         //combine timestamp and parameter
