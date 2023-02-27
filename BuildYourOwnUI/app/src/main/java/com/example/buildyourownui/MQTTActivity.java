@@ -1,3 +1,5 @@
+package com.example.buildyourownui;
+
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
