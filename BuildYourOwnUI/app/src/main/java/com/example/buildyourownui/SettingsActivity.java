@@ -28,7 +28,7 @@ import java.util.ArrayList;
 
 public class SettingsActivity extends AppCompat {
     // initializing variables
-    private TextView lblGeneral, lblSettings;
+    private TextView lblGeneral, lblSettings, test3000;
     private Switch switchNightMode;
     private RadioButton rbEnglish, rbGerman;
     private Button btnChangeUserName;
@@ -37,6 +37,7 @@ public class SettingsActivity extends AppCompat {
     public ToggleButton btnBackgroundMusic;
     private ToggleButton btnSounds;
     private Switch switchEasyHard;
+    private String difficulty_score;
 
     public static boolean switch_hardeasy,StateOfBackgroundMusic, stateOfSounds, StateOfEasyHard;
 
@@ -61,14 +62,14 @@ public class SettingsActivity extends AppCompat {
 
         btnSounds = findViewById(R.id.btnSounds);
         switchEasyHard = findViewById(R.id.switchEasyHard);
-
+        test3000 = findViewById(R.id.test3000);
 
         // Java class
         LanguageManager lang = new LanguageManager( this);
         UsernameManager usernameManager = new UsernameManager(this);
         //SettingsManager settingsManager = new SettingsManager(this);
 
-        /** Shared Preferences of Button State **/
+        /** Shared Preferences of Buttons State **/
         BTNsharedPreferences = getSharedPreferences("btn", Context.MODE_PRIVATE);
         updateBTN();
 /*        switchEasyHard.setChecked(settingsManager.updateEasyHard());
@@ -192,19 +193,36 @@ public class SettingsActivity extends AppCompat {
                 break;
         }
 
+
         /** Easy/Hard Mode */
         StateOfEasyHard = switchEasyHard.isChecked();
-        switchEasyHard.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+/*        switchEasyHard.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked) {
+                if (StateOfEasyHard==true) {
                     // Level hard
                     switch_hardeasy = true;
-                    ScoreActivity.difficulty_score = "Hardmode";
+                    difficulty_score = "Hardmode";
                 } else {
                     // Level easy
                     switch_hardeasy = false;
-                    ScoreActivity.difficulty_score = "Easymode";
+                    difficulty_score = "Easymode";
+                }
+                setBTNpref();
+                // settingsManager.setBTNpref(StateOfEasyHard, StateOfSounds, StateOfBackgroundMusic);       //set Button Preferences
+            }
+        });*/
+        switchEasyHard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (StateOfEasyHard==true) {
+                    // Level hard
+                    switch_hardeasy = true;
+                    difficulty_score = "Hardmode";
+                } else {
+                    // Level easy
+                    switch_hardeasy = false;
+                    difficulty_score = "Easymode";
                 }
                 setBTNpref();
                 // settingsManager.setBTNpref(StateOfEasyHard, StateOfSounds, StateOfBackgroundMusic);       //set Button Preferences
@@ -233,8 +251,13 @@ public class SettingsActivity extends AppCompat {
         SharedPreferences.Editor editor = BTNsharedPreferences.edit();
         editor.clear();
         editor.putBoolean("switchEasyHard", switchEasyHard.isChecked());
+<<<<<<< HEAD
         editor.putString("StringEasyHard", ScoreActivity.difficulty_score);
        // editor.putBoolean("btnBackgroundMusic", btnBackgroundMusic.isChecked());
+=======
+        editor.putString("StringEasyHard", difficulty_score);
+        editor.putBoolean("btnBackgroundMusic", btnBackgroundMusic.isChecked());
+>>>>>>> a41d8e72b69333bf75ed4d5e9e236f7c82caddbc
         editor.putBoolean("btnSounds", btnSounds.isChecked());
         editor.apply();
 
@@ -247,7 +270,8 @@ public class SettingsActivity extends AppCompat {
     }
 
     public String getDifficultyMode(){
-        return BTNsharedPreferences.getString("StringEasyHard", null);
+        String blablatest = BTNsharedPreferences.getString("StringEasyHard", null);
+        return blablatest;
     }
 
 }

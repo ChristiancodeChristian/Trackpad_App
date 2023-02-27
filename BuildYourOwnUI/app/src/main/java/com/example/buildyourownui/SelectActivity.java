@@ -33,7 +33,7 @@ public class SelectActivity extends AppCompat {
             @Override
             public void onClick(View view) {
                 gameModi = true;
-                launchMainActivity();
+                launchMQTTActivity();
             }
         });
 
@@ -44,6 +44,9 @@ public class SelectActivity extends AppCompat {
         Intent intent = new Intent(SelectActivity.this, MainActivity.class);
         startActivity(intent);
     }
-
+    private void launchMQTTActivity(){
+        Intent intent = new Intent(SelectActivity.this, MQTTActivity.class);
+        startActivity(intent);
+    }
 
 }

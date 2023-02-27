@@ -54,8 +54,8 @@ public class GameActivity extends AppCompat {
     int mins = 0;
     int milliseconds = 0;
     int difficulty;
-    int easy = 5;
-    int hard = 8;
+    int easy = 1;
+    int hard = 3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -350,6 +350,7 @@ public class GameActivity extends AppCompat {
         mCounter = mCounter +1;
         //mCounterText.setText("Counter: " + mCounter);
         scorecounter.setText(String.valueOf(mCounter));
+<<<<<<< HEAD
         if (SettingsActivity.switch_hardeasy = true){
             difficulty = hard;
             speed = 3000;
@@ -357,6 +358,15 @@ public class GameActivity extends AppCompat {
         else {
             difficulty = easy;
             speed = 1000;
+=======
+        if (SettingsActivity.StateOfEasyHard = true){
+            difficulty = easy;
+            speed = 2000;
+        }
+        else {
+            difficulty = hard;
+            speed = 2000;
+>>>>>>> a41d8e72b69333bf75ed4d5e9e236f7c82caddbc
         }
 
         if (mCounter >= difficulty) {
