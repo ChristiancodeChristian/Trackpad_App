@@ -27,6 +27,9 @@ public class GameTrackpadActivity extends AppCompat{
                 lblGameTrackpad.setText(getResources().getString(R.string.luck));
                 btnLetsGo.setVisibility(View.GONE);
 
+                //sent start command to Trackpad over MQTT
+
+
             }
         });
     }
