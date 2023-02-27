@@ -45,7 +45,7 @@ public class MainActivity extends AppCompat {
             // Start playing the music
             mediaPlayermain.start();
         }
-        if(stateOfSounds){
+      /*  if(stateOfSounds){
             if(mediaPlayermain.isPlaying()){
                 mediaPlayermain.stop();
             }
@@ -53,7 +53,7 @@ public class MainActivity extends AppCompat {
                 mediaPlayermain.stop();
                 mediaPlayermain.release();
             }
-        }
+        }*/
 
 
 
@@ -106,9 +106,7 @@ public class MainActivity extends AppCompat {
         btnScore1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(mediaPlayermain.isPlaying()){
-                    mediaPlayermain.stop();
-                }
+
                 if (mediaPlayermain != null) {
                     mediaPlayermain.stop();
                     mediaPlayermain.release();
@@ -135,9 +133,7 @@ public class MainActivity extends AppCompat {
         super.onDestroy();
 
         // Stop and release the MediaPlayer when the activity is destroyed
-        if(mediaPlayermain.isPlaying()){
-            mediaPlayermain.stop();
-        }
+
 
         if (mediaPlayermain != null) {
             mediaPlayermain.stop();

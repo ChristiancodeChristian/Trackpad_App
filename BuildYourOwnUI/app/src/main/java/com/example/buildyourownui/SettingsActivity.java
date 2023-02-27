@@ -256,7 +256,7 @@ public class SettingsActivity extends AppCompat {
        // editor.putBoolean("btnBackgroundMusic", btnBackgroundMusic.isChecked());
 
         editor.putString("StringEasyHard", difficulty_score);
-        editor.putBoolean("btnBackgroundMusic", btnBackgroundMusic.isChecked());
+        //editor.putBoolean("btnBackgroundMusic", btnBackgroundMusic.isChecked());
 
         editor.putBoolean("btnSounds", btnSounds.isChecked());
         editor.apply();
