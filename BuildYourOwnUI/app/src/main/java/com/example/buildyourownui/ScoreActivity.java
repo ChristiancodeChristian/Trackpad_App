@@ -10,6 +10,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -26,8 +27,9 @@ public class ScoreActivity extends AppCompat {
     private ArrayList<String> listData;
     private ListView listViewEvents;
     public static String time;
+    private TextView test2000;
 
-    public static String difficulty_score;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,6 +39,7 @@ public class ScoreActivity extends AppCompat {
         btnScore2Graph = findViewById(R.id.btnScore2Graph);
         listViewEvents = findViewById(R.id.listViewEvents);
         btnBackScore = findViewById(R.id.btnscore2home);
+        test2000 = findViewById(R.id.test2000);
         // Java class
         UsernameManager usernameManager = new UsernameManager(this);
         SettingsManager settingsManager = new SettingsManager(this);
@@ -75,18 +78,25 @@ public class ScoreActivity extends AppCompat {
 
         //Test of list:
 
-        if (loadScore==true){
+        //if (loadScore==true){
             String user = usernameManager.getUser();
-            String difficulty = settingsManager.getDifficultyMode();
 
+            //boolean dif = settingsManager.updateEasyHard();
+            //String difficulty = settingsManager.getDifficultyMode();
+            String difficulty;
+            if (SettingsActivity.StateOfEasyHard==true) {
+                test2000.setText("easy");
+                difficulty = "Easy";
+            }
+            else {
+                difficulty = "Hard";
+                test2000.setText("hard");
+            }
             // put new item to score list
             addListItem(user, difficulty, time );
             loadScore=false;
         }
-
-
-
-    }
+   // }
 
     public void addListItem(String user, String difficulty_score, String time){
         //combine timestamp and parameter
