@@ -3,6 +3,7 @@ package com.example.buildyourownui;
 import static com.example.buildyourownui.SettingsActivity.stateOfSounds;
 
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.media.MediaPlayer;
 //import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;

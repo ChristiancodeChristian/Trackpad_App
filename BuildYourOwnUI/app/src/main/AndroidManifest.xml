@@ -14,6 +14,7 @@
         tools:targetApi="31">
         <activity
             android:name=".LoginActivity"
+            android:configChanges="orientation|screenSize"
             android:exported="true"
             android:noHistory="true">
             <intent-filter>
@@ -27,6 +28,7 @@
         </activity>
         <activity
             android:name=".SettingsActivity"
+            android:configChanges="orientation|screenSize"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -34,6 +36,7 @@
         </activity>
         <activity
             android:name=".GameActivity"
+            android:configChanges="orientation|screenSize"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -41,6 +44,7 @@
         </activity>
         <activity
             android:name=".GraphActivity"
+            android:configChanges="orientation|screenSize"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -48,6 +52,7 @@
         </activity>
         <activity
             android:name=".ScoreActivity"
+            android:configChanges="orientation|screenSize"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -55,6 +60,7 @@
         </activity>
         <activity
             android:name=".SelectActivity"
+            android:configChanges="orientation|screenSize"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -62,6 +68,7 @@
         </activity>
         <activity
             android:name=".GameTrackpadActivity"
+            android:configChanges="orientation|screenSize"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -69,6 +76,7 @@
         </activity>
         <activity
             android:name=".MainActivity"
+            android:configChanges="orientation|screenSize"
             android:exported="false">
 
 
