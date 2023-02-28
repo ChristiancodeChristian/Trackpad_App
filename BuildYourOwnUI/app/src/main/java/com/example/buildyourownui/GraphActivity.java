@@ -90,22 +90,16 @@ public class GraphActivity extends AppCompat {
 
         // Create a data set with a single bar
         ArrayList<BarEntry> entries = new ArrayList<>();
-        entries.add(new BarEntry(0f, 0f));
-        entries.add(new BarEntry(0f, 10f));
-        entries.add(new BarEntry(1f, 30f));
-        entries.add(new BarEntry(2f, 50f));
-        entries.add(new BarEntry(3f, 80f));
-        entries.add(new BarEntry(4f, 10f));
-        entries.add(new BarEntry(5f, 60f));
-        entries.add(new BarEntry(6f, 20f));
-        entries.add(new BarEntry(7f, 100f));
-        entries.add(new BarEntry(8f, 80f));
-        entries.add(new BarEntry(9f, 10f));
-        entries.add(new BarEntry(10f, 60f));
-        entries.add(new BarEntry(11f, 20f));
-        entries.add(new BarEntry(12f, 100f));
+        entries.add(new BarEntry(0f, 30.358f));
+        entries.add(new BarEntry(1f, 24.698f));
+        entries.add(new BarEntry(2f, 42.545f));
+        entries.add(new BarEntry(3f, 50.635f));
+        entries.add(new BarEntry(4f, 65.655f));
+        entries.add(new BarEntry(5f, 70.554f));
+        entries.add(new BarEntry(6f, 35.650f));
 
-        BarDataSet dataSet = new BarDataSet(entries, "Score");
+
+        BarDataSet dataSet = new BarDataSet(entries, "Easymode || Time / Seconds");
 
         // Customize the data set
         dataSet.setColor(Color.BLUE);
@@ -121,24 +115,24 @@ public class GraphActivity extends AppCompat {
 
 
         // Set up the barchartreacttime chart
-        barchartreacttime.getDescription().setEnabled(false);
-        barchartreacttime.setDrawGridBackground(false);
-        barchartreacttime.setDrawBarShadow(false);
+        barchartreacttime.getDescription().setEnabled(true);
+        barchartreacttime.setDrawGridBackground(true);
+        barchartreacttime.setDrawBarShadow(true);
         barchartreacttime.setDrawValueAboveBar(true);
-        barchartreacttime.setPinchZoom(false);
-        barchartreacttime.setDrawGridBackground(false);
-        barchartreacttime.setTouchEnabled(false);
-        barchartreacttime.setDoubleTapToZoomEnabled(false);
+        barchartreacttime.setPinchZoom(true);
+        barchartreacttime.setDrawGridBackground(true);
+        barchartreacttime.setTouchEnabled(true);
+        barchartreacttime.setDoubleTapToZoomEnabled(true);
 
         // Create a data set with a single bar
         ArrayList<BarEntry> entries2 = new ArrayList<>();
-        entries2.add(new BarEntry(0f, 10f));
-        entries2.add(new BarEntry(1f, 30f));
-        entries2.add(new BarEntry(2f, 20f));
-        entries2.add(new BarEntry(3f, 70f));
+        entries2.add(new BarEntry(0f, 80.534f));
+        entries2.add(new BarEntry(1f, 100.547f));
+        entries2.add(new BarEntry(2f, 95.525f));
+        entries2.add(new BarEntry(3f, 102.424f));
 
 
-        BarDataSet dataSet2 = new BarDataSet(entries2, "Reacttime / Seconds");
+        BarDataSet dataSet2 = new BarDataSet(entries2, "Hardmode || Time /Seconds");
 
         // Customize the data set
         dataSet2.setColor(Color.BLUE);

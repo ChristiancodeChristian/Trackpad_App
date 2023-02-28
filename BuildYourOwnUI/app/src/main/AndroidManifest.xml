@@ -9,7 +9,7 @@
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
 
 
     <application
@@ -100,11 +100,11 @@
             android:name=".MqttActivity"
 
             android:exported="true">
-           <!-- <intent-filter>
+            <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>-->
+            </intent-filter>
 
 
 

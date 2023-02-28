@@ -26,7 +26,7 @@ public class MqttActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mqt);
 
-      /*  subText = (TextView)findViewById(R.id.subText);
+        subText = (TextView)findViewById(R.id.subText);
 
         String clientId = MqttClient.generateClientId();
         client = new MqttAndroidClient(this.getApplicationContext(), "tcp://broker.mqttdashboard.com:1883",clientId);
@@ -136,7 +136,7 @@ public class MqttActivity extends AppCompatActivity {
             });
         } catch (MqttException e) {
             e.printStackTrace();
-        }*/
+        }
     }
 
 }
