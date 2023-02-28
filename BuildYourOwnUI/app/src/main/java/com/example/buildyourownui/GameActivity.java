@@ -83,14 +83,14 @@ public class GameActivity extends AppCompat {
         if (StateOfEasyHard==true){
             textView7.setText("hard");
             EasyHard = true;
-            difficulty = 4;
+            difficulty = 20;
             speed = 3000;
 
         }
         else {
             textView7.setText("easy");
             EasyHard = false;
-            difficulty = 1;
+            difficulty = 10;
             speed = 1000;
         }
 
