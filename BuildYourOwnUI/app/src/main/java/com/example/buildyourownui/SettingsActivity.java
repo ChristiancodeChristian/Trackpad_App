@@ -37,7 +37,6 @@ public class SettingsActivity extends AppCompat {
     public ToggleButton btnBackgroundMusic;
     private ToggleButton btnSounds;
     private Switch switchEasyHard;
-    private String difficulty_score;
 
     public static boolean switch_hardeasy,StateOfBackgroundMusic, stateOfSounds, StateOfEasyHard;
 
@@ -212,18 +211,20 @@ public class SettingsActivity extends AppCompat {
                 // settingsManager.setBTNpref(StateOfEasyHard, StateOfSounds, StateOfBackgroundMusic);       //set Button Preferences
             }
         });*/
+        StateOfEasyHard = switchEasyHard.isChecked();
         switchEasyHard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (StateOfEasyHard==true) {
                     // Level hard
                     switch_hardeasy = true;
-                    difficulty_score = "Hardmode";
+                    ScoreActivity.difficulty_score = "Hardmode";
                 } else {
                     // Level easy
                     switch_hardeasy = false;
-                    difficulty_score = "Easymode";
+                    ScoreActivity.difficulty_score = "Easymode";
                 }
+                StateOfEasyHard = switchEasyHard.isChecked();
                 setBTNpref();
                 // settingsManager.setBTNpref(StateOfEasyHard, StateOfSounds, StateOfBackgroundMusic);       //set Button Preferences
             }
@@ -253,10 +254,6 @@ public class SettingsActivity extends AppCompat {
         editor.putBoolean("switchEasyHard", switchEasyHard.isChecked());
 
         editor.putString("StringEasyHard", ScoreActivity.difficulty_score);
-       // editor.putBoolean("btnBackgroundMusic", btnBackgroundMusic.isChecked());
-
-        editor.putString("StringEasyHard", difficulty_score);
-        //editor.putBoolean("btnBackgroundMusic", btnBackgroundMusic.isChecked());
 
         editor.putBoolean("btnSounds", btnSounds.isChecked());
         editor.apply();

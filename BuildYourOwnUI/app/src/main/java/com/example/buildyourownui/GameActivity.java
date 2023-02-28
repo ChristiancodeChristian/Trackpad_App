@@ -1,5 +1,6 @@
 package com.example.buildyourownui;
 
+import static com.example.buildyourownui.SettingsActivity.StateOfEasyHard;
 import static com.example.buildyourownui.SettingsActivity.stateOfSounds;
 
 import android.content.Intent;
@@ -25,7 +26,7 @@ public class GameActivity extends AppCompat {
     // initializing variables
     private ImageButton btngame2main;
 
-    private TextView scorecounter;
+    private TextView scorecounter, textView7;
     private ImageButton Mole1,Mole2,Mole3,Mole4,Mole5,Mole6,Mole7,Mole8,Mole9;
     private Handler mHandler;
     private Runnable mRunnable;
@@ -53,9 +54,10 @@ public class GameActivity extends AppCompat {
     int secs = 0;
     int mins = 0;
     int milliseconds = 0;
-    int difficulty;
-    int easy = 5;
-    int hard = 8;
+    private int difficulty;
+    private int easy = 5;
+    private int hard = 8;
+    boolean EasyHard;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,6 +77,21 @@ public class GameActivity extends AppCompat {
         Mole9 = findViewById(R.id.Mole9);
         scorecounter = (TextView) findViewById(R.id.scorecount);
         TextViewtime = (TextView) findViewById(R.id.textViewtime);
+        textView7 = findViewById(R.id.textView7);
+
+        if (SettingsActivity.StateOfEasyHard==true){
+            textView7.setText("hard");
+            EasyHard = true;
+            difficulty = 4;
+            speed = 3000;
+
+        }
+        else {
+            textView7.setText("easy");
+            EasyHard = false;
+            difficulty = 1;
+            speed = 1000;
+        }
 
         // Initialize handler and runnable for delayed color change
         mHandler = new Handler();
@@ -350,14 +367,6 @@ public class GameActivity extends AppCompat {
         mCounter = mCounter +1;
         //mCounterText.setText("Counter: " + mCounter);
         scorecounter.setText(String.valueOf(mCounter));
-        if (SettingsActivity.switch_hardeasy = true){
-            difficulty = hard;
-            speed = 3000;
-        }
-        else {
-            difficulty = easy;
-            speed = 1000;
-        }
 
         if (mCounter >= difficulty) {
             // Launch a new activity when counter reaches 25

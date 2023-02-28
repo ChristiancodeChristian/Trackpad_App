@@ -76,6 +76,12 @@ public class ScoreActivity extends AppCompat {
 
         // load old score list
         loadContent();
+        if (SettingsActivity.StateOfEasyHard==true) {
+            test2000.setText("hard");
+       }
+        else {
+            test2000.setText("easy");
+        }
 
         //Test of list:
 
@@ -86,12 +92,12 @@ public class ScoreActivity extends AppCompat {
             //String difficulty = settingsManager.getDifficultyMode();
             String difficulty;
             if (SettingsActivity.StateOfEasyHard==true) {
-                test2000.setText("easy");
-                difficulty = "Easy";
+                test2000.setText("hard");
+                difficulty = "hard";
             }
             else {
-                difficulty = "Hard";
-                test2000.setText("hard");
+                difficulty = "easy";
+                test2000.setText("easy");
             }
             // put new item to score list
             addListItem(user, difficulty, time );

@@ -18,6 +18,12 @@
         app:layout_constraintTop_toTopOf="@+id/linearLayout"
         app:srcCompat="@drawable/soil" />
 
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView" />
+
     <ImageButton
         android:id="@+id/btngame2main"
         android:layout_width="70dp"
