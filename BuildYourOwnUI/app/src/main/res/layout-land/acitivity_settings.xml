@@ -145,11 +145,10 @@
                         android:layout_width="190dp"
                         android:layout_height="50dp"
                         android:layout_marginHorizontal="30dp"
-                        android:layout_weight="1"
                         android:checked="false"
                         android:scaleX="2"
                         android:scaleY="2"
-                        android:translationX="0dp"
+                        android:translationX="160dp"
                         android:visibility="visible"
                         tools:checked="false"
                         tools:visibility="visible" />
@@ -176,10 +175,9 @@
                         android:layout_width="100dp"
                         android:layout_height="50dp"
                         android:layout_marginHorizontal="30dp"
-                        android:layout_weight="1"
                         android:scaleX="2"
                         android:scaleY="2"
-                        android:translationX="0dp"
+                        android:translationX="160dp"
                         android:visibility="visible" />
 
                 </TableRow>

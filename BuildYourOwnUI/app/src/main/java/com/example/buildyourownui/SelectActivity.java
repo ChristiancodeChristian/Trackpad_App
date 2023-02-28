@@ -45,7 +45,7 @@ public class SelectActivity extends AppCompat {
         startActivity(intent);
     }
     private void launchMQTTActivity(){
-        Intent intent = new Intent(SelectActivity.this, MQTTActivity.class);
+        Intent intent = new Intent(SelectActivity.this, MainActivity.class);
         startActivity(intent);
     }
 

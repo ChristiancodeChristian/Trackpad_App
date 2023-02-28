@@ -1,9 +1,15 @@
-Adafruit_NeoPixel ledStripe;
+int ledPins = 2;    //define Pin for each LED stripe
+int numLed = 9;                //number of Leds per Stripe 
+Adafruit_NeoPixel ledStripe = Adafruit_NeoPixel(numLed, ledPins, NEO_GRB + NEO_KHZ800);
+
 
  void allDark(){
+   //####  Setup LED ####
+   ledStripe.begin();
   for(int i=0; i<9;i++){
     ledStripe.setPixelColor(i, ledStripe.Color(0,0,0)); 
     ledStripe.show();
+    //delay(500);
   }
  }
  void LEDdark(int LEDpin){
