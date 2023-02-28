@@ -79,7 +79,8 @@ public class GameActivity extends AppCompat {
         TextViewtime = (TextView) findViewById(R.id.textViewtime);
         textView7 = findViewById(R.id.textView7);
 
-        if (SettingsActivity.StateOfEasyHard==true){
+
+        if (StateOfEasyHard==true){
             textView7.setText("hard");
             EasyHard = true;
             difficulty = 4;

@@ -2,7 +2,6 @@ package com.example.buildyourownui;
 
 import static com.example.buildyourownui.GameActivity.mediaPlayergame;
 import static com.example.buildyourownui.SelectActivity.gameModi;
-import static com.example.buildyourownui.SettingsActivity.StateOfBackgroundMusic;
 import static com.example.buildyourownui.SettingsActivity.stateOfSounds;
 
 import android.content.Intent;

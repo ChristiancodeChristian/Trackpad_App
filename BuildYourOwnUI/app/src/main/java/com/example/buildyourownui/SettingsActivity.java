@@ -38,7 +38,7 @@ public class SettingsActivity extends AppCompat {
     private ToggleButton btnSounds;
     private Switch switchEasyHard;
 
-    public static boolean switch_hardeasy,StateOfBackgroundMusic, stateOfSounds, StateOfEasyHard;
+    public static boolean switch_hardeasy, stateOfSounds, StateOfEasyHard;
 
     private SharedPreferences BTNsharedPreferences;
 
@@ -262,13 +262,8 @@ public class SettingsActivity extends AppCompat {
 
     private void updateBTN(){
         switchEasyHard.setChecked(BTNsharedPreferences.getBoolean("switchEasyHard", false));
-        //btnBackgroundMusic.setChecked(BTNsharedPreferences.getBoolean("btnBackgroundMusic", false));
         btnSounds.setChecked(BTNsharedPreferences.getBoolean("btnSounds", false));
     }
 
-    public String getDifficultyMode(){
-        String blablatest = BTNsharedPreferences.getString("StringEasyHard", null);
-        return blablatest;
-    }
 
 }
