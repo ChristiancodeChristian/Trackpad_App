@@ -14,7 +14,7 @@
         android:id="@+id/gifImageView"
         android:layout_width="600dp"
         android:layout_height="550dp"
-        android:layout_marginBottom="320dp"
+        android:layout_marginBottom="350dp"
         android:src="@drawable/molewithhammer"
         app:layout_constraintBottom_toBottomOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
@@ -51,7 +51,9 @@
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="70dp">
 
         <TextView
             android:layout_width="match_parent"

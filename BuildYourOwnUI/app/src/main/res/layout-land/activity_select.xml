@@ -23,7 +23,7 @@
         android:id="@+id/textView6"
         android:layout_width="735dp"
         android:layout_height="71dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="48dp"
         android:fontFamily="sans-serif-smallcaps"
         android:gravity="center"
         android:paddingLeft="20dp"
@@ -32,9 +32,8 @@
         android:textAlignment="center"
         android:textSize="24sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/BTN_mobile"
+        app:layout_constraintStart_toStartOf="@+id/BTN_mobile"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
