@@ -43,7 +43,7 @@ public class ScoreActivity extends AppCompat {
         test2000 = findViewById(R.id.test2000);
         // Java class
         UsernameManager usernameManager = new UsernameManager(this);
-        SettingsManager settingsManager = new SettingsManager(this);
+
 
 
 
