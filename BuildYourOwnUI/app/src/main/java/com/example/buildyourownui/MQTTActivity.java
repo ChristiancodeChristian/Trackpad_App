@@ -16,7 +16,7 @@ import org.eclipse.paho.client.mqttv3.MqttClient;
 import org.eclipse.paho.client.mqttv3.MqttException;
 import org.eclipse.paho.client.mqttv3.MqttMessage;
 
-public class MQTTActivity extends AppCompat {
+public class MqttActivity extends AppCompatActivity {
 
     MqttAndroidClient client;
     TextView subText;
@@ -26,7 +26,7 @@ public class MQTTActivity extends AppCompat {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mqt);
 
-        subText = (TextView)findViewById(R.id.subText);
+      /*  subText = (TextView)findViewById(R.id.subText);
 
         String clientId = MqttClient.generateClientId();
         client = new MqttAndroidClient(this.getApplicationContext(), "tcp://broker.mqttdashboard.com:1883",clientId);
@@ -37,14 +37,14 @@ public class MQTTActivity extends AppCompat {
             token.setActionCallback(new IMqttActionListener() {
                 @Override
                 public void onSuccess(IMqttToken asyncActionToken) {
-                    Toast.makeText(MQTTActivity.this,"connected!!",Toast.LENGTH_LONG).show();
+                    Toast.makeText(MqttActivity.this,"connected!!",Toast.LENGTH_LONG).show();
                     setSubscription();
 
                 }
 
                 @Override
                 public void onFailure(IMqttToken asyncActionToken, Throwable exception) {
-                    Toast.makeText(MQTTActivity.this,"connection failed!!",Toast.LENGTH_LONG).show();
+                    Toast.makeText(MqttActivity.this,"connection failed!!",Toast.LENGTH_LONG).show();
                 }
             });
         } catch (MqttException e) {
@@ -101,14 +101,14 @@ public class MQTTActivity extends AppCompat {
             token.setActionCallback(new IMqttActionListener() {
                 @Override
                 public void onSuccess(IMqttToken asyncActionToken) {
-                    Toast.makeText(MQTTActivity.this,"connected!!",Toast.LENGTH_LONG).show();
+                    Toast.makeText(MqttActivity.this,"connected!!",Toast.LENGTH_LONG).show();
                     setSubscription();
 
                 }
 
                 @Override
                 public void onFailure(IMqttToken asyncActionToken, Throwable exception) {
-                    Toast.makeText(MQTTActivity.this,"connection failed!!",Toast.LENGTH_LONG).show();
+                    Toast.makeText(MqttActivity.this,"connection failed!!",Toast.LENGTH_LONG).show();
                 }
             });
         } catch (MqttException e) {
@@ -124,19 +124,19 @@ public class MQTTActivity extends AppCompat {
             token.setActionCallback(new IMqttActionListener() {
                 @Override
                 public void onSuccess(IMqttToken asyncActionToken) {
-                    Toast.makeText(MQTTActivity.this,"Disconnected!!",Toast.LENGTH_LONG).show();
+                    Toast.makeText(MqttActivity.this,"Disconnected!!",Toast.LENGTH_LONG).show();
 
 
                 }
 
                 @Override
                 public void onFailure(IMqttToken asyncActionToken, Throwable exception) {
-                    Toast.makeText(MQTTActivity.this,"Could not diconnect!!",Toast.LENGTH_LONG).show();
+                    Toast.makeText(MqttActivity.this,"Could not diconnect!!",Toast.LENGTH_LONG).show();
                 }
             });
         } catch (MqttException e) {
             e.printStackTrace();
-        }
+        }*/
     }
 
 }
