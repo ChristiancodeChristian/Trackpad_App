@@ -129,8 +129,8 @@ public class ScoreActivity extends AppCompat {
     }
 
     @Override
-    protected void onDestroy() {
-        super.onDestroy();
+    protected void onStop() {
+        super.onStop();
 
         File path = getApplicationContext().getFilesDir();
         try {
