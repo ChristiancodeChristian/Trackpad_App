@@ -12,8 +12,9 @@
 
     <ImageView
         android:id="@+id/imageView_soil3"
-        android:layout_width="1400dp"
-        android:layout_height="1400dp"
+        android:layout_width="1600dp"
+        android:layout_height="1600dp"
+        android:layout_marginBottom="100dp"
         android:background="#00451F04"
         app:layout_constraintBottom_toBottomOf="@+id/scrollView2"
         app:layout_constraintEnd_toEndOf="parent"

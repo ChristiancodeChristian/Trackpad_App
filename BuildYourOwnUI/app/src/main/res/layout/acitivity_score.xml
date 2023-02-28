@@ -6,6 +6,17 @@
     android:screenOrientation="sensor"
     android:layout_height="match_parent">
 
+    <ImageView
+        android:id="@+id/imageView_soil5"
+        android:layout_width="1600dp"
+        android:layout_height="1600dp"
+        android:background="#00451F04"
+        app:layout_constraintBottom_toBottomOf="@+id/scrollView3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/soil" />
+
     <Button
         android:id="@+id/btnScore2Graph"
         android:layout_width="127dp"
@@ -23,6 +34,7 @@
         android:text="TextView" />
 
     <ScrollView
+        android:id="@+id/scrollView3"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
