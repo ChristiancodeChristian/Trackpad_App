@@ -1,74 +1,141 @@
 package com.example.buildyourownui;
 
-import android.content.Intent;
-import android.os.Bundle;
-
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.os.Bundle;
+import android.view.View;
+import android.widget.TextView;
+import android.widget.Toast;
+
 import org.eclipse.paho.android.service.MqttAndroidClient;
+import org.eclipse.paho.client.mqttv3.IMqttActionListener;
 import org.eclipse.paho.client.mqttv3.IMqttDeliveryToken;
 import org.eclipse.paho.client.mqttv3.IMqttToken;
-import org.eclipse.paho.client.mqttv3.MqttCallbackExtended;
+import org.eclipse.paho.client.mqttv3.MqttCallback;
+import org.eclipse.paho.client.mqttv3.MqttClient;
 import org.eclipse.paho.client.mqttv3.MqttException;
 import org.eclipse.paho.client.mqttv3.MqttMessage;
 
-public class MQTTActivity extends AppCompatActivity implements MqttCallbackExtended {
+public class MQTTActivity extends AppCompat {
 
-    private MqttAndroidClient mqttClient;
-    private final String brokerUrl = "38ba39232ed84410ace75a2b856b0842.s2.eu.hivemq.cloud";
-    private final String clientId = "TrackPad";
-    private final String topic = "esp32/score";
+    MqttAndroidClient client;
+    TextView subText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_mqt);
+        subText = (TextView)findViewById(R.id.subText);
 
-        // create MQTT client
-        mqttClient = new MqttAndroidClient(this, brokerUrl, clientId);
-        mqttClient.setCallback(this);
+        String clientId = MqttClient.generateClientId();
+        client = new MqttAndroidClient(this.getApplicationContext(), "tcp://broker.mqttdashboard.com:1883",clientId);
+        //client = new MqttAndroidClient(this.getApplicationContext(), "tcp://192.168.43.41:1883",clientId);
 
-        // connect to broker
         try {
-            IMqttToken token = mqttClient.connect();
-            token.waitForCompletion();
+            IMqttToken token = client.connect();
+            token.setActionCallback(new IMqttActionListener() {
+                @Override
+                public void onSuccess(IMqttToken asyncActionToken) {
+                    Toast.makeText(MQTTActivity.this,"connected!!",Toast.LENGTH_LONG).show();
+                    setSubscription();
+
+                }
+
+                @Override
+                public void onFailure(IMqttToken asyncActionToken, Throwable exception) {
+                    Toast.makeText(MQTTActivity.this,"connection failed!!",Toast.LENGTH_LONG).show();
+                }
+            });
         } catch (MqttException e) {
             e.printStackTrace();
         }
 
-        // subscribe to topic
+        client.setCallback(new MqttCallback() {
+            @Override
+            public void connectionLost(Throwable cause) {
+
+            }
+
+            @Override
+            public void messageArrived(String topic, MqttMessage message) throws Exception {
+                subText.setText(new String(message.getPayload()));
+            }
+
+            @Override
+            public void deliveryComplete(IMqttDeliveryToken token) {
+
+            }
+        });
+
+    }
+
+    public void published(View v){
+
+        String topic = "event";
+        String message = "the payload";
         try {
-            IMqttToken token = mqttClient.subscribe(topic, 0);
-            token.waitForCompletion();
+            client.publish(topic, message.getBytes(),0,false);
+            Toast.makeText(this,"Published Message",Toast.LENGTH_SHORT).show();
+        } catch ( MqttException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void setSubscription(){
+
+        try{
+
+            client.subscribe("event",0);
+
+
+        }catch (MqttException e){
+            e.printStackTrace();
+        }
+    }
+
+    public void conn(View v){
+
+        try {
+            IMqttToken token = client.connect();
+            token.setActionCallback(new IMqttActionListener() {
+                @Override
+                public void onSuccess(IMqttToken asyncActionToken) {
+                    Toast.makeText(MQTTActivity.this,"connected!!",Toast.LENGTH_LONG).show();
+                    setSubscription();
+
+                }
+
+                @Override
+                public void onFailure(IMqttToken asyncActionToken, Throwable exception) {
+                    Toast.makeText(MQTTActivity.this,"connection failed!!",Toast.LENGTH_LONG).show();
+                }
+            });
         } catch (MqttException e) {
             e.printStackTrace();
         }
-        launchMainActivity();
 
     }
 
-    @Override
-    public void connectionLost(Throwable cause) {
-        // handle connection lost
-    }
+    public void disconn(View v){
 
-    @Override
-    public void messageArrived(String topic, MqttMessage message) throws Exception {
-        // handle incoming message
-    }
-
-    @Override
-    public void deliveryComplete(IMqttDeliveryToken token) {
-        // handle message delivery complete
-    }
-
-    @Override
-    public void connectComplete(boolean reconnect, String serverURI) {
-        // handle connection complete
-    }
+        try {
+            IMqttToken token = client.disconnect();
+            token.setActionCallback(new IMqttActionListener() {
+                @Override
+                public void onSuccess(IMqttToken asyncActionToken) {
+                    Toast.makeText(MQTTActivity.this,"Disconnected!!",Toast.LENGTH_LONG).show();
 
 
-    private void launchMainActivity(){
-        Intent intent = new Intent(MQTTActivity.this, MainActivity.class);
-        startActivity(intent);
+                }
+
+                @Override
+                public void onFailure(IMqttToken asyncActionToken, Throwable exception) {
+                    Toast.makeText(MQTTActivity.this,"Could not diconnect!!",Toast.LENGTH_LONG).show();
+                }
+            });
+        } catch (MqttException e) {
+            e.printStackTrace();
+        }
     }
+
 }
